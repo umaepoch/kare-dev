@@ -1,0 +1,118 @@
+{
+ "autoname": "field:name_of_user",
+ "creation": "2021-12-08 14:22:24.586045",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_user",
+  "contact_no",
+  "break",
+  "email_id",
+  "address",
+  "s_break",
+  "capture_image",
+  "image_preview",
+  "cl_br",
+  "type_of_user",
+  "sc_br",
+  "aadhar_card_no",
+  "photo_of__aadhar_card",
+  "aadhar_preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_user",
+   "fieldtype": "Data",
+   "label": "Name Of User",
+   "unique": 1
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact NO"
+  },
+  {
+   "fieldname": "break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "s_break",
+   "fieldtype": "Section Break",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "capture_image",
+   "fieldtype": "Button",
+   "label": "Capture Image"
+  },
+  {
+   "fieldname": "image_preview",
+   "fieldtype": "HTML",
+   "label": "Image Preview"
+  },
+  {
+   "fieldname": "cl_br",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type_of_user",
+   "fieldtype": "Select",
+   "label": "Type Of User",
+   "options": "Admin\nCoordinator\nSaathi"
+  },
+  {
+   "fieldname": "sc_br",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "aadhar_card_no",
+   "fieldtype": "Data",
+   "label": "AADHAR Card NO"
+  },
+  {
+   "fieldname": "photo_of__aadhar_card",
+   "fieldtype": "Button",
+   "label": "Photo Of  AADHAR Card"
+  },
+  {
+   "fieldname": "aadhar_preview",
+   "fieldtype": "HTML",
+   "label": "AADHAR Preview"
+  }
+ ],
+ "modified": "2021-12-09 13:05:08.262408",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "User Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

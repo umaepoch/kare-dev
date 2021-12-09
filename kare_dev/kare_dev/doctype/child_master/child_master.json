@@ -1,0 +1,148 @@
+{
+ "autoname": "field:case_no",
+ "creation": "2021-12-09 11:26:15.164521",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "case_no",
+  "date_of_enrolment",
+  "column_break_3",
+  "name_of_child",
+  "section_break_5",
+  "parentcaregiver_name",
+  "column_break_7",
+  "address",
+  "district_zone",
+  "sex",
+  "date_of_birth",
+  "section_break_12",
+  "aadhar_card_no",
+  "photograph",
+  "photograph_preview",
+  "section_break_16",
+  "case_active_status",
+  "kare_cwcnon_kare_case",
+  "notes_on_the_case"
+ ],
+ "fields": [
+  {
+   "fieldname": "case_no",
+   "fieldtype": "Data",
+   "label": "Case No",
+   "unique": 1
+  },
+  {
+   "fieldname": "date_of_enrolment",
+   "fieldtype": "Date",
+   "label": "Date Of Enrolment"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "label": "Name Of Child"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "parentcaregiver_name",
+   "fieldtype": "Link",
+   "label": "Parent/Caregiver Name",
+   "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "district_zone",
+   "fieldtype": "Data",
+   "label": "District Zone"
+  },
+  {
+   "fieldname": "sex",
+   "fieldtype": "Link",
+   "label": "Sex",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "aadhar_card_no",
+   "fieldtype": "Data",
+   "label": "Aadhar Card NO"
+  },
+  {
+   "fieldname": "photograph",
+   "fieldtype": "Button",
+   "label": "Photograph"
+  },
+  {
+   "fieldname": "photograph_preview",
+   "fieldtype": "HTML",
+   "label": "Photograph Preview"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "case_active_status",
+   "fieldtype": "Data",
+   "label": "Case Active Status"
+  },
+  {
+   "fieldname": "kare_cwcnon_kare_case",
+   "fieldtype": "Select",
+   "label": "KARE /CWC/Non KARE Case",
+   "options": "KARE\nCWC\nNon KARE"
+  },
+  {
+   "fieldname": "notes_on_the_case",
+   "fieldtype": "Data",
+   "label": "Notes On The Case"
+  }
+ ],
+ "modified": "2021-12-09 13:08:02.139652",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Child Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

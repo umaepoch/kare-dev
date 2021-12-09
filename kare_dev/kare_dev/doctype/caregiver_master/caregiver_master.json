@@ -1,0 +1,117 @@
+{
+ "autoname": "field:caregiver_code",
+ "creation": "2021-12-08 17:13:18.762906",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "caregiver_code",
+  "parentcaregiver_name",
+  "cb",
+  "relationship_with_child",
+  "date_of_birth",
+  "sb",
+  "skill",
+  "education",
+  "permanent_address",
+  "cb1",
+  "migrant_status",
+  "employment_type",
+  "photograph",
+  "photograph_review"
+ ],
+ "fields": [
+  {
+   "fieldname": "caregiver_code",
+   "fieldtype": "Data",
+   "label": "Caregiver Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "parentcaregiver_name",
+   "fieldtype": "Data",
+   "label": "Parent/Caregiver Name"
+  },
+  {
+   "fieldname": "cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "relationship_with_child",
+   "fieldtype": "Data",
+   "label": "Relationship With Child"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "skill",
+   "fieldtype": "Data",
+   "label": "Skill"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Link",
+   "label": "Permanent Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "migrant_status",
+   "fieldtype": "Data",
+   "label": "Migrant Status"
+  },
+  {
+   "fieldname": "employment_type",
+   "fieldtype": "Data",
+   "label": "Employment Type"
+  },
+  {
+   "fieldname": "photograph",
+   "fieldtype": "Button",
+   "label": "Photograph"
+  },
+  {
+   "fieldname": "photograph_review",
+   "fieldtype": "HTML",
+   "label": " Photograph Review"
+  }
+ ],
+ "modified": "2021-12-09 12:58:59.828249",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Caregiver Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
