@@ -1,0 +1,87 @@
+{
+ "creation": "2021-12-09 16:13:00.561786",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "case_no",
+  "name_of_coordinator",
+  "section_break_3",
+  "case_plan_document",
+  "description_of_case_requirement",
+  "column_break_6",
+  "date_of_start",
+  "date_of_completion",
+  "completed_yn"
+ ],
+ "fields": [
+  {
+   "fieldname": "case_no",
+   "fieldtype": "Data",
+   "label": "Case NO",
+   "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "case_plan_document",
+   "fieldtype": "Data",
+   "label": "Case Plan Document"
+  },
+  {
+   "fieldname": "description_of_case_requirement",
+   "fieldtype": "Data",
+   "label": "Description Of Case Requirement"
+  },
+  {
+   "fieldname": "date_of_start",
+   "fieldtype": "Data",
+   "label": "Date Of Start"
+  },
+  {
+   "fieldname": "date_of_completion",
+   "fieldtype": "Data",
+   "label": "Date Of Completion"
+  },
+  {
+   "fieldname": "completed_yn",
+   "fieldtype": "Select",
+   "label": "Completed Y/N",
+   "options": "YES\nNO"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "modified": "2021-12-09 17:00:54.890928",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Case Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
