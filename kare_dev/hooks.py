@@ -16,14 +16,14 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/kare_dev/css/kare_dev.css"
-# app_include_js = "/assets/kare_dev/js/kare_dev.js"
+# app_include_js = "/assets/kare_dev/js/camera.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/kare_dev/css/kare_dev.css"
-# web_include_js = "/assets/kare_dev/js/kare_dev.js"
+# web_include_js = "/assets/kare_dev/js/camera.js"
 
 # include js in page
-# page_js = {"page" : "public/js/file.js"}
+# page_js = {"background_jobs" : "/assets/kare_dev/public/js/camera.js"}
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
