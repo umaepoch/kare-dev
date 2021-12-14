@@ -83,9 +83,9 @@ class Camera {
   render() {
     return navigator.mediaDevices.getUserMedia(this.options).then(stream =>{
 
-      return this.dialog = new frappe.ui.Dialog({
-        title: __("Camera"),
-        animate: false,
+      this.dialog = new frappe.ui.Dialog({
+        title: __(`Camera`),
+    	  animate: false,
         action:
         {
           secondary:
