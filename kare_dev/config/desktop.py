@@ -6,9 +6,10 @@ def get_data():
 	return [
 		{
 			"module_name": "kare_dev",
+			"category": "Modules",
+			"label": _("KARE"),
 			"color": "grey",
 			"icon": "octicon octicon-file-directory",
-			"type": "module",
-			"label": _("kare_dev")
+			"type": "module"
 		}
 	]
