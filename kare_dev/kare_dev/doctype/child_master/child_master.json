@@ -1,64 +1,99 @@
 {
- "autoname": "field:case_no",
- "creation": "2021-12-09 11:26:15.164521",
+ "autoname": "naming_series:",
+ "creation": "2021-12-17 15:37:07.232328",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "case_no",
-  "date_of_enrolment",
-  "column_break_3",
-  "name_of_child",
-  "section_break_5",
-  "parentcaregiver_name",
-  "column_break_7",
-  "address",
-  "district_zone",
-  "sex",
+  "naming_series",
+  "child_details_section",
+  "first_name",
+  "column_break_4",
+  "middle_name",
+  "column_break_6",
+  "last_name",
+  "section_break_8",
   "date_of_birth",
-  "section_break_12",
-  "aadhar_card_no",
-  "photograph",
-  "photograph_preview",
+  "mothers_name",
+  "column_break_12",
+  "gender",
+  "address_details_section",
+  "address",
+  "column_break_15",
+  "address_type",
   "section_break_16",
-  "case_active_status",
-  "kare_cwcnon_kare_case",
-  "notes_on_the_case"
+  "aadhar_card_number",
+  "images_section",
+  "image"
  ],
  "fields": [
   {
-   "fieldname": "case_no",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record Number",
+   "options": "CHLD-"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "Case No",
-   "unique": 1
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
   },
   {
-   "fieldname": "date_of_enrolment",
-   "fieldtype": "Date",
-   "label": "Date Of Enrolment"
-  },
-  {
-   "fieldname": "column_break_3",
+   "fieldname": "column_break_4",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "name_of_child",
+   "fieldname": "middle_name",
    "fieldtype": "Data",
-   "label": "Name Of Child"
+   "label": "Middle Name"
   },
   {
-   "fieldname": "section_break_5",
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "section_break_8",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "parentcaregiver_name",
-   "fieldtype": "Link",
-   "label": "Parent/Caregiver Name",
-   "options": "Caregiver Master"
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
   },
   {
-   "fieldname": "column_break_7",
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mother's Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
   },
   {
    "fieldname": "address",
@@ -67,62 +102,38 @@
    "options": "Address"
   },
   {
-   "fieldname": "district_zone",
-   "fieldtype": "Data",
-   "label": "District Zone"
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
   },
   {
-   "fieldname": "sex",
-   "fieldtype": "Link",
-   "label": "Sex",
-   "options": "Gender"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date Of Birth"
-  },
-  {
-   "fieldname": "section_break_12",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "aadhar_card_no",
-   "fieldtype": "Data",
-   "label": "Aadhar Card NO"
-  },
-  {
-   "fieldname": "photograph",
-   "fieldtype": "Button",
-   "label": "Photograph"
-  },
-  {
-   "fieldname": "photograph_preview",
-   "fieldtype": "HTML",
-   "label": "Photograph Preview"
+   "fieldname": "address_type",
+   "fieldtype": "Select",
+   "label": "Address Type",
+   "options": "Permanent Address\nCurrent Address"
   },
   {
    "fieldname": "section_break_16",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "case_active_status",
+   "fieldname": "aadhar_card_number",
    "fieldtype": "Data",
-   "label": "Case Active Status"
+   "label": "Aadhar Card Number"
   },
   {
-   "fieldname": "kare_cwcnon_kare_case",
-   "fieldtype": "Select",
-   "label": "KARE /CWC/Non KARE Case",
-   "options": "KARE\nCWC\nNon KARE"
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Image Details",
+   "options": "fa fa-map-marker"
   },
   {
-   "fieldname": "notes_on_the_case",
-   "fieldtype": "Data",
-   "label": "Notes On The Case"
+   "fieldname": "image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "Images"
   }
  ],
- "modified": "2021-12-09 13:08:02.139652",
+ "modified": "2021-12-17 15:37:07.232328",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
@@ -136,7 +147,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "All",
    "share": 1,
    "write": 1
   }

@@ -26,6 +26,7 @@ const TEMPLATE 	  =
 			<video class="embed-responsive-item">${ERR_MESSAGE}</video>
 		</div>
 	</div>
+	<br/>
 	<div>
 		<div class="fc-btf">
 			<div class="row">
@@ -40,6 +41,13 @@ const TEMPLATE 	  =
 					<div class="pull-right">
 						<button class="btn btn-primary fc-bs">
 							<small>${__('Submit')}</small>
+						</button>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="pull-right">
+						<button class="btn btn-primary fc-tc">
+							<small>${__('Toggle')}</small>
 						</button>
 					</div>
 				</div>
@@ -104,6 +112,7 @@ class Camera {
       const $container = $(this.dialog.body)
 			$container.html($e)
 
+			$e.find('.fc-tc').hide()
       $e.find('.fc-btf').hide()
 
       $e.find('.fc-bcp').click(() =>
@@ -163,5 +172,10 @@ class Camera {
 	submit (fn)
 	{
 		this.callback = fn
+	}
+
+	get_device()
+	{
+		return navigator.mediaDevices.enumerateDevices()
 	}
 };

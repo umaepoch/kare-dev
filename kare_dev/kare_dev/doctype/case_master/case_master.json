@@ -1,0 +1,342 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-12-17 16:23:36.334615",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "case_proposal",
+  "column_break_3",
+  "date_of_commencement",
+  "section_break_3",
+  "child_details_section",
+  "child",
+  "gender",
+  "name_of_child",
+  "column_break_9",
+  "date_of_birth",
+  "address_of_child",
+  "images",
+  "caregiver_details_section",
+  "caregiver",
+  "column_break_14",
+  "caregiver_from",
+  "column_break_16",
+  "caregiver_to",
+  "name_of_caregiver",
+  "relationship_details_section",
+  "how_is_caregiver_related_to_child",
+  "saathi_details_section",
+  "saathi",
+  "column_break_23",
+  "s_from",
+  "column_break_24",
+  "s_to",
+  "name_of_saathi",
+  "coordinator_details_section",
+  "proposed_coordinator",
+  "column_break_30",
+  "from",
+  "column_break_32",
+  "to",
+  "name_of_coordinator",
+  "case_type",
+  "remittance_details_section",
+  "date_of_remittance",
+  "remitted_to_childcaregiver",
+  "mode_of_remittance",
+  "column_break_37",
+  "bank_account",
+  "amount",
+  "first_three_months_engagement_plan_section",
+  "outreach_by",
+  "column_break_45",
+  "number_of_outreaches_planned",
+  "column_break_47",
+  "average_days_between_visits"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record Number",
+   "options": "CASE-"
+  },
+  {
+   "fieldname": "case_proposal",
+   "fieldtype": "Link",
+   "label": "Case Proposal",
+   "options": "Case Proposal"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_commencement",
+   "fieldtype": "Date",
+   "label": "Date of Commencement"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "child",
+   "fieldtype": "Link",
+   "label": "Child",
+   "options": "Child Master"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "label": "Name of Child"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "address_of_child",
+   "fieldtype": "Link",
+   "label": "Address Of Child",
+   "options": "Address"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "HTML",
+   "label": "Images"
+  },
+  {
+   "fieldname": "caregiver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Caregiver Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "caregiver",
+   "fieldtype": "Link",
+   "label": "Caregiver",
+   "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "caregiver_from",
+   "fieldtype": "Data",
+   "label": "Caregiver_From"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "caregiver_to",
+   "fieldtype": "Data",
+   "label": "Caregiver_To"
+  },
+  {
+   "fieldname": "name_of_caregiver",
+   "fieldtype": "Data",
+   "label": "Name Of Caregiver"
+  },
+  {
+   "fieldname": "relationship_details_section",
+   "fieldtype": "Section Break",
+   "label": "Relationship Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "how_is_caregiver_related_to_child",
+   "fieldtype": "Select",
+   "label": "How Is Caregiver Related to Child",
+   "options": "Parent\nUncle\nAunt\nGrand Parent\nBrother\nCousin\nFamily Friend\nGuardian\nOther"
+  },
+  {
+   "fieldname": "saathi_details_section",
+   "fieldtype": "Section Break",
+   "label": "Saathi Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "saathi",
+   "fieldtype": "Link",
+   "label": "Saathi",
+   "options": "Service Provider Master"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "s_from",
+   "fieldtype": "Data",
+   "label": "Saathi_From"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "s_to",
+   "fieldtype": "Data",
+   "label": "Saathi_To"
+  },
+  {
+   "fieldname": "name_of_saathi",
+   "fieldtype": "Data",
+   "label": "Name of Saathi"
+  },
+  {
+   "fieldname": "coordinator_details_section",
+   "fieldtype": "Section Break",
+   "label": "Coordinator Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "proposed_coordinator",
+   "fieldtype": "Link",
+   "label": "Proposed Coordinator",
+   "options": "Service Provider Master"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from",
+   "fieldtype": "Data",
+   "label": "Coordinator_From"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to",
+   "fieldtype": "Data",
+   "label": "Coordinator_To"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Select",
+   "label": "Case Type",
+   "options": "KARE\nCWC\nnon KARE case"
+  },
+  {
+   "fieldname": "remittance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Remittance Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "date_of_remittance",
+   "fieldtype": "Date",
+   "label": "Date Of Remittance"
+  },
+  {
+   "fieldname": "remitted_to_childcaregiver",
+   "fieldtype": "Select",
+   "label": "Remitted To",
+   "options": "Child\nCaregiver"
+  },
+  {
+   "fieldname": "mode_of_remittance",
+   "fieldtype": "Select",
+   "label": "Mode Of Remittance",
+   "options": "Online Transfer\nCheque"
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Data",
+   "label": "Bank Account"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Data",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "first_three_months_engagement_plan_section",
+   "fieldtype": "Section Break",
+   "label": "First Three Months Engagement Plan",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "outreach_by",
+   "fieldtype": "Select",
+   "label": "Outreach By",
+   "options": "Saathi\nCoordinator"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "number_of_outreaches_planned",
+   "fieldtype": "Data",
+   "label": "Number Of Outreaches Planned"
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "average_days_between_visits",
+   "fieldtype": "Data",
+   "label": "Average Days Between Visits"
+  }
+ ],
+ "modified": "2021-12-17 16:23:36.334615",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Case Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

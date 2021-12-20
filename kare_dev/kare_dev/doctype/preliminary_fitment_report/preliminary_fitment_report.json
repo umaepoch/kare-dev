@@ -1,0 +1,325 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-12-17 16:17:28.617379",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "case_proposal",
+  "section_break_2",
+  "child_details_section",
+  "child",
+  "mothers_name",
+  "column_break_6",
+  "child_name",
+  "date_of_birth",
+  "gender",
+  "address_of_child",
+  "display_address",
+  "caregiver_details_section",
+  "caregiver",
+  "education",
+  "employed",
+  "column_break_18",
+  "caregiver_name",
+  "skill",
+  "type_of_employment",
+  "relationship_details_section",
+  "relationship_between_child_and_caregiver",
+  "saathi_details_section",
+  "saathi",
+  "coordinator_details_section",
+  "name_of_coordinator",
+  "column_break_30",
+  "case_type",
+  "fitment_report_section_section",
+  "delhi_resident",
+  "parent_status",
+  "age",
+  "school_going",
+  "name_of_school",
+  "class",
+  "column_break_35",
+  "motivation_to_get_educated",
+  "parent_motivation",
+  "total_income_of_family_per_month",
+  "number_of_members_in_family",
+  "income_per_month_per_head",
+  "income_eligibility",
+  "images_section",
+  "table_45",
+  "date_of_reference",
+  "accepted"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record ID",
+   "options": "PFRP-"
+  },
+  {
+   "fieldname": "case_proposal",
+   "fieldtype": "Link",
+   "label": "Case Proposal",
+   "options": "Case Proposal"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "child",
+   "fieldtype": "Data",
+   "label": "Child"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "label": "Mother's Name"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "child_name",
+   "fieldtype": "Date",
+   "label": "Child Name"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "address_of_child",
+   "fieldtype": "Link",
+   "label": "Address Of Child",
+   "options": "Address"
+  },
+  {
+   "fieldname": "display_address",
+   "fieldtype": "Data",
+   "label": "Display Address"
+  },
+  {
+   "fieldname": "caregiver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Caregiver Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "caregiver",
+   "fieldtype": "Data",
+   "label": "Caregiver"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fieldname": "employed",
+   "fieldtype": "Select",
+   "label": "Employed",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "caregiver_name",
+   "fieldtype": "Data",
+   "label": "Caregiver Name "
+  },
+  {
+   "fieldname": "skill",
+   "fieldtype": "Data",
+   "label": "Skill"
+  },
+  {
+   "fieldname": "type_of_employment",
+   "fieldtype": "Data",
+   "label": "Type of Employment"
+  },
+  {
+   "fieldname": "relationship_details_section",
+   "fieldtype": "Section Break",
+   "label": "Relationship Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "relationship_between_child_and_caregiver",
+   "fieldtype": "Data",
+   "label": "Relationship Between Child And Caregiver"
+  },
+  {
+   "fieldname": "saathi_details_section",
+   "fieldtype": "Section Break",
+   "label": "Saathi Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "saathi",
+   "fieldtype": "Data",
+   "label": "Name Of Saathi"
+  },
+  {
+   "fieldname": "coordinator_details_section",
+   "fieldtype": "Section Break",
+   "label": "Coordinator Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Select",
+   "label": "Case Type",
+   "options": "KARE\nCWC\nnon KARE case"
+  },
+  {
+   "fieldname": "fitment_report_section_section",
+   "fieldtype": "Section Break",
+   "label": "Fitment Report Section",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "delhi_resident",
+   "fieldtype": "Select",
+   "label": "Delhi Resident",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "parent_status",
+   "fieldtype": "Select",
+   "label": "Parent Status",
+   "options": "Orphan\nSemi-Orphan"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "school_going",
+   "fieldtype": "Select",
+   "label": "School Going",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "name_of_school",
+   "fieldtype": "Data",
+   "label": "Name Of School"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "label": "Class"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "motivation_to_get_educated",
+   "fieldtype": "Select",
+   "label": "Motivation To Get Educated",
+   "options": "High\nMedium\nLow"
+  },
+  {
+   "fieldname": "parent_motivation",
+   "fieldtype": "Select",
+   "label": "Parent Motivation",
+   "options": "High\nMedium\nLow"
+  },
+  {
+   "fieldname": "total_income_of_family_per_month",
+   "fieldtype": "Data",
+   "label": "Total Income of Family per month"
+  },
+  {
+   "fieldname": "number_of_members_in_family",
+   "fieldtype": "Data",
+   "label": "Number of members in Family"
+  },
+  {
+   "fieldname": "income_per_month_per_head",
+   "fieldtype": "Data",
+   "label": "Income Per Month Per Head"
+  },
+  {
+   "fieldname": "income_eligibility",
+   "fieldtype": "Select",
+   "label": "Income Eligibility",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Images",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "table_45",
+   "fieldtype": "Table",
+   "options": "Images"
+  },
+  {
+   "fieldname": "date_of_reference",
+   "fieldtype": "Date",
+   "label": "Date Of Reference"
+  },
+  {
+   "fieldname": "accepted",
+   "fieldtype": "Select",
+   "label": "Accepted",
+   "options": "Yes\nNo"
+  }
+ ],
+ "modified": "2021-12-17 16:17:28.617379",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Preliminary Fitment Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

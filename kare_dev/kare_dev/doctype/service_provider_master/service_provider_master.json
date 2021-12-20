@@ -1,47 +1,44 @@
 {
  "autoname": "naming_series:",
- "creation": "2021-12-17 15:42:33.215897",
+ "creation": "2021-12-17 16:18:20.307486",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "caregiver_details_column",
+  "service_provider_details",
   "first_name",
-  "column_break_4",
-  "middle_name",
   "column_break_6",
+  "middle_name",
+  "column_break_8",
   "last_name",
-  "sb",
+  "section_break_10",
   "date_of_birth",
-  "column_break_11",
+  "column_break_13",
   "gender",
   "address_details_section",
   "add_address",
-  "column_break_14",
-  "address_type",
-  "section_break_15",
-  "aadhar_card_number",
-  "section_break_14",
-  "table_16",
-  "section_break_17",
-  "education",
   "column_break_16",
-  "skill",
-  "employed",
-  "type_of_employment"
+  "address_type",
+  "section_break_17",
+  "aadhar_card_number",
+  "section_break_13",
+  "images",
+  "image",
+  "service_provider_type_section",
+  "service_provider_type"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Record Number",
-   "options": "CRGR-"
+   "options": "STFF-"
   },
   {
-   "fieldname": "caregiver_details_column",
+   "fieldname": "service_provider_details",
    "fieldtype": "Section Break",
-   "label": "Caregiver Details",
+   "label": "Service Provider Details",
    "options": "fa fa-map-marker"
   },
   {
@@ -52,7 +49,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_4",
+   "fieldname": "column_break_6",
    "fieldtype": "Column Break"
   },
   {
@@ -61,7 +58,7 @@
    "label": "Middle Name"
   },
   {
-   "fieldname": "column_break_6",
+   "fieldname": "column_break_8",
    "fieldtype": "Column Break"
   },
   {
@@ -70,7 +67,7 @@
    "label": "Last Name"
   },
   {
-   "fieldname": "sb",
+   "fieldname": "section_break_10",
    "fieldtype": "Section Break"
   },
   {
@@ -79,13 +76,13 @@
    "label": "Date Of Birth"
   },
   {
-   "fieldname": "column_break_11",
+   "fieldname": "column_break_13",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "gender",
    "fieldtype": "Select",
-   "label": "Gender",
+   "label": "Gender ",
    "options": "Male\nFemale\nOther"
   },
   {
@@ -100,7 +97,7 @@
    "options": "Address"
   },
   {
-   "fieldname": "column_break_14",
+   "fieldname": "column_break_16",
    "fieldtype": "Column Break"
   },
   {
@@ -110,7 +107,7 @@
    "options": "Permanent Address\nCurrent Address"
   },
   {
-   "fieldname": "section_break_15",
+   "fieldname": "section_break_17",
    "fieldtype": "Section Break"
   },
   {
@@ -119,49 +116,36 @@
    "label": "Aadhar Card Number"
   },
   {
-   "fieldname": "section_break_14",
-   "fieldtype": "Section Break",
-   "label": "Images"
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "table_16",
+   "fieldname": "images",
+   "fieldtype": "Section Break",
+   "label": "Images",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "image",
    "fieldtype": "Table",
    "options": "Images"
   },
   {
-   "fieldname": "section_break_17",
-   "fieldtype": "Section Break"
+   "fieldname": "service_provider_type_section",
+   "fieldtype": "Section Break",
+   "label": "Service Provider Type",
+   "options": "fa fa-map-marker"
   },
   {
-   "fieldname": "education",
-   "fieldtype": "Data",
-   "label": "Education"
-  },
-  {
-   "fieldname": "column_break_16",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "skill",
-   "fieldtype": "Data",
-   "label": "Skill"
-  },
-  {
-   "fieldname": "employed",
-   "fieldtype": "Select",
-   "label": "Employed",
-   "options": "Yes\nNo"
-  },
-  {
-   "fieldname": "type_of_employment",
-   "fieldtype": "Data",
-   "label": "Type Of Employment"
+   "fieldname": "service_provider_type",
+   "fieldtype": "Table",
+   "options": "Service Provider Type"
   }
  ],
- "modified": "2021-12-17 15:43:26.841999",
+ "modified": "2021-12-17 16:18:20.307486",
  "modified_by": "Administrator",
  "module": "kare_dev",
- "name": "Caregiver Master",
+ "name": "Service Provider Master",
  "owner": "Administrator",
  "permissions": [
   {

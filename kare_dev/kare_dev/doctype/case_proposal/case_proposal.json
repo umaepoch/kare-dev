@@ -1,0 +1,257 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-12-16 10:09:44.797630",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "date_of_reference",
+  "child_details_section",
+  "child",
+  "name_of_child",
+  "address_of_child",
+  "column_break_7",
+  "gender",
+  "date_of_birth",
+  "images",
+  "caregiver_details",
+  "caregiver",
+  "skill",
+  "employed",
+  "column_break_15",
+  "name_of_caregiver",
+  "education",
+  "type_of_employment",
+  "relationship_details",
+  "how_is_caregiver_related_to_child",
+  "saathi_details",
+  "saathiproposed_saathi",
+  "column_break_23",
+  "name_of_saathi",
+  "coordinator_details",
+  "proposed_coordinator",
+  "column_break_27",
+  "name_of_coordinator",
+  "section_break_28",
+  "case_type",
+  "approved_for_preliminary_fitment_report",
+  "column_break_29",
+  "preliminary_fitment_report",
+  "assessment_from_preliminary_fitment_report_is_accepted",
+  "proposal_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record Number",
+   "options": "PROP-"
+  },
+  {
+   "fieldname": "date_of_reference",
+   "fieldtype": "Date",
+   "label": "Date Of Reference"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "child",
+   "fieldtype": "Link",
+   "label": "Child",
+   "options": "Child Master"
+  },
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "label": "Name Of Child"
+  },
+  {
+   "fieldname": "address_of_child",
+   "fieldtype": "Link",
+   "label": "Address Of Child",
+   "options": "Address"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "HTML",
+   "label": "Images"
+  },
+  {
+   "fieldname": "caregiver_details",
+   "fieldtype": "Section Break",
+   "label": "Caregiver Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "caregiver",
+   "fieldtype": "Link",
+   "label": "Caregiver",
+   "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "skill",
+   "fieldtype": "Data",
+   "label": "Skill"
+  },
+  {
+   "fieldname": "employed",
+   "fieldtype": "Select",
+   "label": "Employed",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_caregiver",
+   "fieldtype": "Data",
+   "label": "Name Of Caregiver"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fieldname": "type_of_employment",
+   "fieldtype": "Data",
+   "label": "Type of Employment"
+  },
+  {
+   "fieldname": "relationship_details",
+   "fieldtype": "Section Break",
+   "label": "Relationship Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "how_is_caregiver_related_to_child",
+   "fieldtype": "Select",
+   "label": "How Is Caregiver Related To Child",
+   "options": "Parent\nUncle\nAunt\nGrand Parent\nBrother\nCousin\nFamily Friend\nGuardian"
+  },
+  {
+   "fieldname": "saathi_details",
+   "fieldtype": "Section Break",
+   "label": "Saathi Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_saathi",
+   "fieldtype": "Data",
+   "label": "Name Of Saathi"
+  },
+  {
+   "fieldname": "coordinator_details",
+   "fieldtype": "Section Break",
+   "label": "Coordinator Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "proposed_coordinator",
+   "fieldtype": "Link",
+   "label": "Proposed Coordinator",
+   "options": "Service Provider Master"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Select",
+   "label": "Case Type",
+   "options": "KARE\nCWC\nnon KARE case"
+  },
+  {
+   "fieldname": "approved_for_preliminary_fitment_report",
+   "fieldtype": "Select",
+   "label": "Approved For Preliminary Fitment Report",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "preliminary_fitment_report",
+   "fieldtype": "Link",
+   "label": "Preliminary Fitment Report",
+   "options": "Preliminary Fitment Report"
+  },
+  {
+   "fieldname": "assessment_from_preliminary_fitment_report_is_accepted",
+   "fieldtype": "Select",
+   "label": "Assessment from Preliminary Fitment Report is Accepted",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "proposal_status",
+   "fieldtype": "Select",
+   "label": "Proposal Status",
+   "options": "Under Process\nAccepted\nRejected"
+  },
+  {
+   "fieldname": "saathiproposed_saathi",
+   "fieldtype": "Link",
+   "label": "Proposed Saathi",
+   "options": "Service Provider Master"
+  }
+ ],
+ "modified": "2021-12-17 14:45:28.394128",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Case Proposal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
