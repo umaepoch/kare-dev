@@ -2,7 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Child Master', {
-	// refresh: function(frm) {
-
-	// }
+	images: function(frm) {
+		var doc = frm.doc
+		console.log(doc)
+	}
 });
