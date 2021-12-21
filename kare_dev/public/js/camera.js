@@ -118,8 +118,7 @@ class Camera {
   }
 
   render() {
-		return capture('user').then(stream =>
-		{
+			stream = capture('user')
 			this.dialog = new frappe.ui.Dialog({
 					title: this.options.title,
 				animate: this.options.animate,
@@ -133,7 +132,7 @@ class Camera {
 			})
 
 			const $e = $(TEMPLATE)
-			const video = $e.find('video')[0]
+			var video = $e.find('video')[0]
 			video.srcObject = stream
 			video.play()
 
@@ -186,7 +185,6 @@ class Camera {
 				if (this.callback)
 					this.callback(data_url)
 			})
-		})
   }
 
   show ( )
