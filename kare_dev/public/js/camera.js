@@ -104,32 +104,32 @@ class Camera {
   }
 
   render() {
-		return navigator.mediaDevices.getUserMedia({ video: true }).then(stream =>
-		{
-			this.dialog 	 = new frappe.ui.Dialog({
-					title: this.options.title,
-				animate: this.options.animate,
-				 action:
-				{
-					secondary:
-					{
-						label: "<b>&times</b>"
-					}
-				}
-			})
+    return navigator.mediaDevices.getUserMedia({video: true}).then(stream =>{
 
-			const $e = $(TEMPLATE)
+      this.dialog = new frappe.ui.Dialog({
+        title: __(`Camera`),
+    	  animate: false,
+        action:
+        {
+          secondary:
+          {
+            label: "<b>&times</b>"
+          }
+        }
+      });
 
-			const video = $e.find('video')[0]
-			video.srcObject = stream
+      const $e 		 = $(TEMPLATE)
+
+			const video      = $e.find('video')[0]
+			video.srcObject  = stream
 			video.play()
 
-			const $container = $(this.dialog.body)
+      const $container = $(this.dialog.body)
 			$container.html($e)
 
-			$e.find('.fc-btf').hide()
+      $e.find('.fc-btf').hide()
 
-			$e.find('.fc-bcp').click(() =>
+      $e.find('.fc-bcp').click(() =>
 			{
 				const data_url = frappe._.get_data_uri(video)
 				$e.find('.fc-p').attr('src', data_url)
@@ -141,7 +141,7 @@ class Camera {
 				$e.find('.fc-btf').show()
 			})
 
-			$e.find('.fc-br').click(() =>
+      $e.find('.fc-br').click(() =>
 			{
 				$e.find('.fc-p').hide()
 				$e.find('.fc-s').show()
@@ -150,7 +150,7 @@ class Camera {
 				$e.find('.fc-btu').show()
 			})
 
-			$e.find('.fc-bs').click(() =>
+      $e.find('.fc-bs').click(() =>
 			{
 				const data_url = frappe._.get_data_uri(video)
 				this.hide()
@@ -158,7 +158,7 @@ class Camera {
 				if (this.callback)
 					this.callback(data_url)
 			})
-		})
+    })
   }
 
   show ( )
