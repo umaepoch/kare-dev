@@ -122,14 +122,14 @@ const capture = async (mode, videoElm) => {
 		}
 
 		stream = await navigator.mediaDevices.getUserMedia(constraints);
-		// return stream
+		return stream
 	} catch(err) {
 		frappe.throw(__(ERR_MESSAGE))
 		throw err
 	}
 	// videoElm.srcObject = null
-	videoElm.srcObject = stream
-	videoElm.play()
+	// videoElm.srcObject = stream
+	// videoElm.play()
 }
 
 function render() {
