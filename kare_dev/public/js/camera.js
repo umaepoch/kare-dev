@@ -95,7 +95,7 @@ class Camera {
     return this
   }
 
-  async render() {
+  render() {
     return navigator.mediaDevices.getUserMedia({video: true}).then(stream =>{
 
       this.dialog = new frappe.ui.Dialog({
@@ -131,7 +131,7 @@ class Camera {
 				tracks.forEach(track => track.stop());
 
 				// Provide new options
-				stream = await navigator.mediaDevices.getUserMedia({video:{facingMode: "user"}})
+				stream = navigator.mediaDevices.getUserMedia({video:{facingMode: "user"}})
 
 				// Add this stream to the video object
 				video.srcObject = null;
@@ -145,7 +145,7 @@ class Camera {
 				tracks.forEach(track => track.stop());
 
 				// Provide new options
-				stream = await navigator.mediaDevices.getUserMedia({video:{facingMode: "environment"}})
+				stream = navigator.mediaDevices.getUserMedia({video:{facingMode: "environment"}})
 
 				// Add this stream to the video object
 				video.srcObject = null;
