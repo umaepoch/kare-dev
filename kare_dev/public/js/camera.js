@@ -118,8 +118,9 @@ class Camera {
   }
 
   render() {
-			stream = capture('user')
-			this.dialog = new frappe.ui.Dialog({
+		return navigator.mediaDevices.getUserMedia({ video: true }).then(stream =>
+		{
+			this.dialog 	 = new frappe.ui.Dialog({
 					title: this.options.title,
 				animate: this.options.animate,
 				 action:
@@ -132,7 +133,8 @@ class Camera {
 			})
 
 			const $e = $(TEMPLATE)
-			var video = $e.find('video')[0]
+
+			const video = $e.find('video')[0]
 			video.srcObject = stream
 			video.play()
 
@@ -140,21 +142,6 @@ class Camera {
 			$container.html($e)
 
 			$e.find('.fc-btf').hide()
-
-			if (this.options.deviceType === "desktop") {
-				$e.find('.fc-btb').hide()
-				$e.find('.fc-btf').hide()
-			}
-
-			$e.find('.fc-fr').click(() => {
-				video.srcObject = capture('user')
-				video.play()
-			})
-
-			$e.find('.fc-bk').click(() => {
-				video.srcObject = capture('environment')
-				video.play()
-			})
 
 			$e.find('.fc-bcp').click(() =>
 			{
@@ -185,6 +172,7 @@ class Camera {
 				if (this.callback)
 					this.callback(data_url)
 			})
+		})
   }
 
   show ( )
