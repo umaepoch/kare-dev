@@ -44,20 +44,6 @@ const TEMPLATE 	  =
 						</button>
 					</div>
 				</div>
-				<div class="col-md-6 fc-btf">
-					<div class="pull-right">
-						<button class="btn btn-primary fc-fr">
-							<small>${__('Front')}</small>
-						</button>
-					</div>
-				</div>
-				<div class="col-md-6 fc-btb">
-					<div class="pull-right">
-						<button class="btn btn-primary fc-bk">
-							<small>${__('Rear')}</small>
-						</button>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="fc-btu">
@@ -72,6 +58,20 @@ const TEMPLATE 	  =
 						// </div>
 					}
 				</div>
+				<div class="col-md-6 fc-btf">
+					<div class="pull-left">
+						<button class="btn btn-primary fc-fr">
+							<small>${__('Front')}</small>
+						</button>
+					</div>
+				</div>
+				<div class="col-md-6 fc-btb">
+					<div class="pull-left">
+						<button class="btn btn-primary fc-bk">
+							<small>${__('Rear')}</small>
+						</button>
+					</div>
+				</div>
 				<div class="col-md-6">
 					<div class="pull-right">
 						<button class="btn btn-default fc-bcp">
@@ -84,6 +84,28 @@ const TEMPLATE 	  =
 	</div>
 </div>
 `
+let stream;
+
+const capture = async facingMode => {
+	 const options = {
+		 audio: false,
+		 video: {
+			 facingMode,
+		 },
+	 };
+
+	 try {
+		 if (stream) {
+			 const tracks = stream.getTracks();
+			 tracks.forEach(track => track.stop());
+		 }
+		 stream = await navigator.mediaDevices.getUserMedia(options);
+		 return stream
+	 } catch (e) {
+		 frappe.throw(e);
+		 return;
+	 }
+ }
 
 class Camera {
   constructor (opt = { }) {
@@ -96,66 +118,46 @@ class Camera {
   }
 
   render() {
-    return navigator.mediaDevices.getUserMedia({video: true}).then(stream =>{
+		return capture('user').then(stream =>
+		{
+			this.dialog = new frappe.ui.Dialog({
+					title: this.options.title,
+				animate: this.options.animate,
+				 action:
+				{
+					secondary:
+					{
+						label: "<b>&times</b>"
+					}
+				}
+			})
 
-      this.dialog = new frappe.ui.Dialog({
-        title: __(`Camera`),
-    	  animate: false,
-        action:
-        {
-          secondary:
-          {
-            label: "<b>&times</b>"
-          }
-        }
-      });
-
-      const $e 		 = $(TEMPLATE)
-
-
-			const video      = $e.find('video')[0]
-			video.srcObject  = stream
+			const $e = $(TEMPLATE)
+			const video = $e.find('video')[0]
+			video.srcObject = stream
 			video.play()
 
-      const $container = $(this.dialog.body)
+			const $container = $(this.dialog.body)
 			$container.html($e)
-
-			if (this.options.deviceType === "desktop") {
-				$e.find('.fc-btf').hide()
-				$e.find('.fc-btb').hide()
-			}
-
-			$e.find('.fc-fr').click(() => {
-				// Stop the tracks
-				const tracks = stream.getTracks();
-				tracks.forEach(track => track.stop());
-
-				// Provide new options
-				stream = navigator.mediaDevices.getUserMedia({video:{facingMode: "user"}})
-
-				// Add this stream to the video object
-				video.srcObject = null;
-				video.srcObject = stream;
-				video.play();
-			})
-
-			$e.find('.fc-bk').click(() => {
-				// Stop the tracks
-				const tracks = stream.getTracks();
-				tracks.forEach(track => track.stop());
-
-				// Provide new options
-				stream = navigator.mediaDevices.getUserMedia({video:{facingMode: "environment"}})
-
-				// Add this stream to the video object
-				video.srcObject = null;
-				video.srcObject = stream;
-				video.play();
-			})
 
 			$e.find('.fc-btf').hide()
 
-      $e.find('.fc-bcp').click(() =>
+			if (this.options.deviceType === "desktop") {
+				$e.find('.fc-btb').hide()
+				$e.find('.fc-btf').hide()
+			}
+
+			$e.find('.fc-fr').click(() => {
+				video.srcObject = capture('user')
+				video.play()
+			})
+
+			$e.find('.fc-bk').click(() => {
+				video.srcObject = capture('environment')
+				video.play()
+			})
+
+			$e.find('.fc-bcp').click(() =>
 			{
 				const data_url = frappe._.get_data_uri(video)
 				$e.find('.fc-p').attr('src', data_url)
@@ -167,7 +169,7 @@ class Camera {
 				$e.find('.fc-btf').show()
 			})
 
-      $e.find('.fc-br').click(() =>
+			$e.find('.fc-br').click(() =>
 			{
 				$e.find('.fc-p').hide()
 				$e.find('.fc-s').show()
@@ -176,7 +178,7 @@ class Camera {
 				$e.find('.fc-btu').show()
 			})
 
-      $e.find('.fc-bs').click(() =>
+			$e.find('.fc-bs').click(() =>
 			{
 				const data_url = frappe._.get_data_uri(video)
 				this.hide()
@@ -184,7 +186,7 @@ class Camera {
 				if (this.callback)
 					this.callback(data_url)
 			})
-    })
+		})
   }
 
   show ( )
