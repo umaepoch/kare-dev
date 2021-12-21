@@ -58,21 +58,7 @@ const TEMPLATE 	  =
 						// </div>
 					}
 				</div>
-				<div class="col-md-3 fc-btf">
-					<div class="pull-left">
-						<button class="btn btn-primary fc-fr">
-							<small>${__('Front')}</small>
-						</button>
-					</div>
-				</div>
-				<div class="col-md-3 fc-btb">
-					<div class="pull-left">
-						<button class="btn btn-primary fc-bk">
-							<small>${__('Rear')}</small>
-						</button>
-					</div>
-				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="pull-right">
 						<button class="btn btn-default fc-bcp">
 							<small>${__('Take Photo')}</small>
