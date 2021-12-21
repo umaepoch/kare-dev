@@ -4,8 +4,15 @@ frappe.require("/assets/kare_dev/js/camera.js")
 
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   var doc = locals[cdt][cdn]
-  console.log(doc)
-  // console.log(navigator.userAgent)
   var cam = new Camera();
-  console.log(`device type : ${cam.set_device_options()}`)
+
+  // set options for cam based on deviceType.
+  // returns device type (mobile/desktop).
+  cam.set_device_options()
+
+  // open camera.
+  cam.show()
+  cam.submit((data) => {
+    console.log(data)
+  })
 });
