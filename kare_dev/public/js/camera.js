@@ -95,7 +95,7 @@ class Camera {
     return this
   }
 
-  render() {
+  async render() {
     return navigator.mediaDevices.getUserMedia({video: true}).then(stream =>{
 
       this.dialog = new frappe.ui.Dialog({
