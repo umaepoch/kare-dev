@@ -88,52 +88,13 @@ const TEMPLATE 	  =
 </div>
 `
 
+let constraints;
+let callback;
+let dialog;
 let stream;
 
-// Create Helper to ask for permission and list devices
-let MediaStreamHelper = {
-    // Property of the object to store the current stream
-    _stream: null,
-    // This method will return the promise to list the real devices
-    getDevices: function() {
-        return navigator.mediaDevices.enumerateDevices();
-    },
-    // Request user permissions to access the camera and video
-    requestStream: function() {
-        if (this._stream) {
-            this._stream.getTracks().forEach(track => {
-                track.stop();
-            });
-        }
-        return navigator.mediaDevices.getUserMedia(constraints);
-    }
-};
-
-const capture = async (mode, videoElm) => {
-	var constraints = {
-		video: {
-			facingMode: mode
-		}
-	}
-	try {
-		if (stream) {
-			const tracks = stream.getTracks();
-			tracks.forEach(track => track.stop());
-		}
-
-		stream = await navigator.mediaDevices.getUserMedia(constraints);
-		return stream
-	} catch(err) {
-		frappe.throw(__(ERR_MESSAGE))
-		throw err
-	}
-	// videoElm.srcObject = null
-	// videoElm.srcObject = stream
-	// videoElm.play()
-}
-
-function render() {
-	var dialog 	 = new frappe.ui.Dialog({
+async function render() {
+	dialog = new frappe.ui.Dialog({
 			title: __('Camera'),
 		animate: false,
 		 action:
@@ -147,7 +108,8 @@ function render() {
 
 	const $e = $(TEMPLATE)
 
-	stream = capture("user")
+	stream = await navigator.mediaDevices.getUserMedia({video: true});
+
 	var video = $e.find('video')[0]
 	video.srcObject = stream
 	video.play()
@@ -155,28 +117,69 @@ function render() {
 	var $container = $(dialog.body)
 	$container.html($e)
 
-	if (device()) {
-		$e.find('.fc-front').hide()
-		$e.find('.fc-back').hide()
+	if (device().deviceType === "desktop") {
+		$e.find('.fc-btc').hide()
+		// $e.find('.fc-back').hide()
 	}
 
 	$e.find('.fc-btf').hide()
 
-	$e.find('.fc-front').click(() => {
-		stream = capture("user", video)
-		// video.srcObject = null;
-		// video.srcObject = stream
-		// video.play()
+	$e.find('.fc-front').click( async () => {
+
+		if (stream) {
+			const tracks = stream.getTracks();
+			tracks.forEach(track => track.stop());
+		}
+
+		stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});
+
+		video.srcObject = null;
+		video.srcObject = stream
+		video.play()
 	})
 
-	$e.find('.fc-back').click(()=> {
-		stream = capture("environment", video)
-		// video.srcObject = null
-		// video.srcObject = stream
-		// video.play()
+	$e.find('.fc-back').click(async ()=> {
+
+		if (stream) {
+			const tracks = stream.getTracks();
+			tracks.forEach(track => track.stop());
+		}
+
+		stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+		video.srcObject = null
+		video.srcObject = stream
+		video.play()
 	})
 
-	return dialog
+	$e.find('.fc-bcp').click(() =>
+	{
+		const data_url = frappe._.get_data_uri(video)
+		$e.find('.fc-p').attr('src', data_url)
+
+		$e.find('.fc-s').hide()
+		$e.find('.fc-p').show()
+
+		$e.find('.fc-btu').hide()
+		$e.find('.fc-btf').show()
+	})
+
+	$e.find('.fc-br').click(() =>
+	{
+		$e.find('.fc-p').hide()
+		$e.find('.fc-s').show()
+
+		$e.find('.fc-btf').hide()
+		$e.find('.fc-btu').show()
+	})
+
+	$e.find('.fc-bs').click(() =>
+	{
+		const data_url = frappe._.get_data_uri(video)
+		dialog.hide()
+
+		if (callback)
+			callback(data_url)
+	})
 }
 
 function support() {
@@ -197,4 +200,28 @@ function device() {
   	} else {
 			return {deviceType: "desktop"}
 		}
+}
+
+function show() {
+	try {
+		render().then(()=>{
+			if (dialog) {
+				dialog.show()
+			}
+		})
+	} catch(err) {
+		frappe.throw(__(ERR_MESSAGE))
+		throw err
+	}
+
+}
+
+function hide() {
+	if (dialog) {
+		dialog.hide()
+	}
+}
+
+function submit(fn) {
+	callback = fn
 }
