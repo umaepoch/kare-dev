@@ -117,11 +117,6 @@ async function render() {
 	var $container = $(dialog.body)
 	$container.html($e)
 
-	if (device().deviceType === "desktop") {
-		$e.find('.fc-btc').hide()
-		// $e.find('.fc-back').hide()
-	}
-
 	$e.find('.fc-btf').hide()
 
 	$e.find('.fc-front').click( async () => {
@@ -161,6 +156,7 @@ async function render() {
 
 		$e.find('.fc-btu').hide()
 		$e.find('.fc-btf').show()
+		$e.find('.fc-btc').hide()
 	})
 
 	$e.find('.fc-br').click(() =>
@@ -170,12 +166,18 @@ async function render() {
 
 		$e.find('.fc-btf').hide()
 		$e.find('.fc-btu').show()
+		$e.find('.fc-btc').show()
 	})
 
 	$e.find('.fc-bs').click(() =>
 	{
 		const data_url = frappe._.get_data_uri(video)
 		dialog.hide()
+
+		if (stream) {
+			const tracks = stream.getTracks();
+			tracks.forEach(track => track.stop());
+		}
 
 		if (callback)
 			callback(data_url)
