@@ -22,6 +22,7 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 
     if (is_created) {
       doc.attach = is_created
+      console.log(is_created)
       if (frm.is_dirty()) {
         console.log(`dirty form`)
       }
