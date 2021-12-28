@@ -12,20 +12,20 @@ class ChildMaster(Document):
 	pass
 
 @frappe.whitelist()
-def create_image_url(doc):
+def create_image_url():
 	try:
-		img = json.loads(doc)
+		# img = json.loads(doc)
 		# b64 = base64.b64decode(img['data'])
 		# first_name = img['first_name']
 		# image_name = img['image_name']
 		# doctype = img['doctype']
 		# doc_name = img['doc_name']
 
-		print(img)
+		# print(img)
 		# if img:
 		# 	sf = save_file(first_name+"_"+image_name+".png", b64, doctype, doc_name)
 		# 	return {"SC": True, "file_url":sf.file_url}
 
-		return {"SC": False}
+		return {"SC": "success"}
 	except Exception as ex:
 		return {"EX": ex}

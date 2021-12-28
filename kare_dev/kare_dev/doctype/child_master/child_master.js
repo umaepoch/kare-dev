@@ -22,7 +22,7 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
     // images.first_name = frm.doc.first_name
     // images.doctype = doc.doctype
     // console.log(images)
-    is_created = create_image_url(JSON.stringify(images))
+    is_created = create_image_url()
 
     // if (is_created) {
     //   doc.attach = is_created
@@ -38,14 +38,12 @@ function create_image_url(doc) {
   let flag;
 	frappe.call({
 		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_image_url',
-		args: {
-      'doc': doc
-		},
 		async: false,
 		callback: function(r) {
 			if(r.message){
 				if (r.message.SC) {
-          flag = r.message.file_url
+          // flag = r.message.file_url
+          console.log(r.message.SC)
         } else {
           frappe.throw(__(`Image URL creation failed`))
         }
