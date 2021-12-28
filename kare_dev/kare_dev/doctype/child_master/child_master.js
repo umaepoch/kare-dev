@@ -13,13 +13,12 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
     submit((data) => {
       let img = data.split(",")
       images.data = img[1]
+      images.image_name = doc.image_name
+      images.doc_name = doc.name
+      images.first_name = frm.doc.first_name
+      images.doctype = doc.doctype
+      is_created = create_image_url(JSON.stringify(images))
     })
-    images.image_name = doc.image_name
-    images.doc_name = doc.name
-    images.first_name = frm.doc.first_name
-    images.doctype = doc.doctype
-
-    is_created = create_image_url(JSON.stringify(images))
 
     if (is_created) {
       doc.attach = is_created
