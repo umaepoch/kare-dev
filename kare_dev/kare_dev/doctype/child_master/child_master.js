@@ -21,11 +21,18 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 
       if (is_created) {
         doc.attach = is_created
-        frm.reload_doc()
       }
     });
   } else {
     frappe.throw(__("To activate camera enter image name"))
+  }
+
+  if (is_created) {
+    if(frm.is_dirty()) {
+      frm.save()
+    } else {
+      frm.reload_doc()
+    }
   }
 });
 
