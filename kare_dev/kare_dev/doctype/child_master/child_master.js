@@ -29,7 +29,7 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 function create_image_url(img, name, doc_name,first_name, doctype) {
   let flag;
 	frappe.call({
-		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_image_url',
+		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_file',
 		args: {
 			'data': img,
       'image_name': name,

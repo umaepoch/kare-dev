@@ -11,7 +11,7 @@ class ChildMaster(Document):
 	pass
 
 @frappe.whitelist()
-def create_image_url(data, image_name, doc_name, first_name, doctype):
+def create_file(data, image_name, doc_name, first_name, doctype):
 	try:
 		b64 = base64.b64decode(data)
 		print(data)
