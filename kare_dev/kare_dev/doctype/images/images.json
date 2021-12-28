@@ -5,12 +5,12 @@
  "engine": "InnoDB",
  "field_order": [
   "image_name",
-  "image",
   "column_break_3",
   "image_type",
-  "section_break_5",
+  "upload_section",
+  "image_preview",
+  "col_brk",
   "attach",
-  "column_break_7",
   "activate_camera",
   "section_break_9",
   "image_url_on_frappe"
@@ -21,11 +21,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Image "
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "HTML",
-   "label": "Image"
   },
   {
    "fieldname": "column_break_3",
@@ -39,16 +34,8 @@
    "options": "Photograph\nDocument"
   },
   {
-   "fieldname": "section_break_5",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "attach",
    "fieldtype": "Attach"
-  },
-  {
-   "fieldname": "column_break_7",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "activate_camera",
@@ -63,10 +50,24 @@
    "fieldname": "image_url_on_frappe",
    "fieldtype": "Data",
    "label": "Image URL On Frappe"
+  },
+  {
+   "fieldname": "image_preview",
+   "fieldtype": "HTML",
+   "label": "Image"
+  },
+  {
+   "fieldname": "col_brk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "upload_section",
+   "fieldtype": "Section Break",
+   "label": "Upload"
   }
  ],
  "istable": 1,
- "modified": "2021-12-17 11:09:14.897314",
+ "modified": "2021-12-23 18:00:40.570229",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Images",
