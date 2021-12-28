@@ -14,6 +14,9 @@ class ChildMaster(Document):
 def create_image_url(data, image_name, doc_name, first_name, doctype):
 	try:
 		b64 = base64.b64decode(data)
+		print(data)
+		print()
+		print(doc_name)
 		if b64:
 			sf = save_file(first_name+"_"+image_name+".png", b64, doctype, doc_name)
 			return {"SC": True, "file_url":sf.file_url}

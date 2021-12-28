@@ -9,7 +9,9 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
     show()
     submit((data) => {
       let img = data.split(",")
+      console.log(`creating url......`)
       is_created = create_image_url(img[1], doc.image_name, doc.name, frm.doc.first_name, doc.doctype)
+      console.log(`url created!!!`)
     })
     if (is_created) {
       doc.attach = is_created
@@ -28,11 +30,11 @@ function create_image_url(img, name, doc_name,first_name, doctype) {
 	frappe.call({
 		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_image_url',
 		args: {
-			data: img,
-      image_name: name,
-      doc_name: doc_name,
-      first_name: first_name,
-      doctype: doctype
+			'data': img,
+      'image_name': name,
+      'doc_name': doc_name,
+      'first_name': first_name,
+      'doctype': doctype
 		},
 		async: false,
 		callback: function(r) {
