@@ -2,18 +2,25 @@
 // For license information, please see license.txt
 frappe.require("/assets/kare_dev/js/camera.js")
 
+let images = {}
+
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   var doc = locals[cdt][cdn]
   let is_created;
+
   if (doc.image_name) {
     show()
     submit((data) => {
       let img = data.split(",")
-
-      console.log(`creating url......${img[1]}`)
-      is_created = create_image_url(img[1], doc.image_name, doc.name, frm.doc.first_name, doc.doctype)
-      console.log(`url created!!!`)
+      images.data = img[1]
     })
+    images.image_name = doc.image_name
+    images.doc_name = doc.name
+    images.first_name = frm.doc.first_name
+    images.doctype = doc.doctype
+
+    is_created = create_image_url(JSON.stringify(images))
+
     if (is_created) {
       doc.attach = is_created
     }
@@ -26,16 +33,12 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 // API for creating image url.
 // @return BOOLEAN.
 // @param Base64 image data.
-function create_image_url(img, name, doc_name,first_name, doctype) {
+function create_image_url(doc) {
   let flag;
 	frappe.call({
-		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_file',
+		method:'kare_dev.kare_dev.doctype.child_master.child_master.create_image_url',
 		args: {
-			'data': img,
-      'image_name': name,
-      'doc_name': doc_name,
-      'first_name': first_name,
-      'doctype': doctype
+      'doc': doc
 		},
 		async: false,
 		callback: function(r) {

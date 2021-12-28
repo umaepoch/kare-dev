@@ -6,17 +6,21 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils.file_manager import save_file
 import base64
+import json
 
 class ChildMaster(Document):
 	pass
 
 @frappe.whitelist()
-def create_file(data, image_name, doc_name, first_name, doctype):
+def create_image_url(doc):
 	try:
-		b64 = base64.b64decode(data)
-		print(data)
-		print()
-		print(doc_name)
+		img = json.loads(doc)
+		b64 = base64.b64decode(img['data'])
+		first_name = img['first_name']
+		image_name = img['image_name']
+		doctype = img['doctype']
+		doc_name = img['doc_name']
+
 		if b64:
 			sf = save_file(first_name+"_"+image_name+".png", b64, doctype, doc_name)
 			return {"SC": True, "file_url":sf.file_url}
