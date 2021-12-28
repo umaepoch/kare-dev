@@ -21,7 +21,8 @@ def create_image_url(doc):
 		doctype = img['doctype']
 		doc_name = img['doc_name']
 
-		if b64:
+		print(img)
+		if img:
 			sf = save_file(first_name+"_"+image_name+".png", b64, doctype, doc_name)
 			return {"SC": True, "file_url":sf.file_url}
 
