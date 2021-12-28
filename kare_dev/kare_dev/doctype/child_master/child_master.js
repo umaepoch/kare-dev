@@ -19,10 +19,11 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 
       if (is_created) {
         doc.attach = is_created
+        frm.dirty()
         console.log(is_created)
-        frm.refresh_field('image')
         if(frm.is_dirty()) {
           frm.save()
+          frm.refresh_field('image')
         } else {
           frm.reload_doc()
         }
