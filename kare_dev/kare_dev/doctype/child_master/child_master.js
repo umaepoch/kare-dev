@@ -10,8 +10,6 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   if (doc.image_name) {
     show()
     submit((data) => {
-      let img = data.split(",")
-      images.data = img[1]
       images.data = data.split(",")[1]
       images.image_name = doc.image_name
       images.doc_name = doc.name
@@ -19,25 +17,22 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
       images.doctype = doc.doctype
       is_created = create_image_url(JSON.stringify(images))
 
-      // if (is_created) {
-      //
-      //   // frm.dirty()
-      // }
+      if (is_created) {
+        doc.attach = is_created
+        console.log(is_created)
+        frm.refresh_field('image')
+        if(frm.is_dirty()) {
+          frm.save()
+        } else {
+          frm.reload_doc()
+        }
+      }
     });
   } else {
     frappe.throw(__("To activate camera enter image name"))
   }
 
-  if (is_created) {
-    doc.attach = is_created
-    console.log(is_created)
-    frm.refresh_field('image')
-    if(frm.is_dirty()) {
-      frm.save()
-    } else {
-      frm.reload_doc()
-    }
-  }
+
 });
 
 
