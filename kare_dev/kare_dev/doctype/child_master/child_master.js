@@ -6,7 +6,7 @@ var data = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAA
 
 
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
-  let images = {}
+  let images = { data: "reached api call!!!"}
   var doc = locals[cdt][cdn]
   let is_created;
 
@@ -16,17 +16,17 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
     //   let img = data.split(",")
     //   images.data = img[1]
     // })
-    images.data = data.split(",")[1]
-    images.image_name = doc.image_name
-    images.doc_name = doc.name
-    images.first_name = frm.doc.first_name
-    images.doctype = doc.doctype
-    console.log(images)
+    // images.data = data.split(",")[1]
+    // images.image_name = doc.image_name
+    // images.doc_name = doc.name
+    // images.first_name = frm.doc.first_name
+    // images.doctype = doc.doctype
+    // console.log(images)
     is_created = create_image_url(JSON.stringify(images))
 
-    if (is_created) {
-      doc.attach = is_created
-    }
+    // if (is_created) {
+    //   doc.attach = is_created
+    // }
   } else {
     frappe.throw(__("To activate camera enter image name"))
   }
