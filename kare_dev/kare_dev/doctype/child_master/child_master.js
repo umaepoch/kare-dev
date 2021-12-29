@@ -2,6 +2,20 @@
 // For license information, please see license.txt
 frappe.require("/assets/kare_dev/js/camera.js")
 
+frappe.ui.form.on("Child Master", "refresh", function(frm, cdt, cdn){
+  var doc = locals[cdt][cdn]
+
+  frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Child Master'}
+	frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
+
+  if (!frm.doc.__islocal) {
+    frappe.contacts.render_address_and_contact(frm);
+  } else {
+    frappe.contacts.clear_address_and_contact(frm);
+  }
+});
+
+
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   let images = {}
   var doc = locals[cdt][cdn]
@@ -20,7 +34,6 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
       if (is_created) {
         doc.attach = is_created
         frm.dirty()
-        console.log(doc.attach)
         if(frm.is_dirty()) {
           frm.save()
           frm.refresh_field('image')
@@ -64,13 +77,8 @@ function create_image_url(doc) {
 
 frappe.ui.form.on("Images", "form_render", function(frm, cdt, cdn){
   var doc = locals[cdt][cdn]
-  // console.log(doc)
 
-  if (frm.is_dirty()) {
-    frm.save()
-  }
-  // console.log(frm.doc)
-  if (doc.attach && !frm.is_dirty()) {
+  if (doc.attach) {
     var wrapper = frm.fields_dict[doc.parentfield].grid.grid_rows_by_docname[cdn].grid_form.fields_dict['image_preview'].$wrapper
     var is_viewable = frappe.utils.is_image_file(doc.attach);
     console.log(is_viewable)
