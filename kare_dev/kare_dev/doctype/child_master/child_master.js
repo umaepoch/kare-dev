@@ -12,6 +12,7 @@ frappe.ui.form.on("Child Master", "refresh", function(frm, cdt, cdn){
     frappe.contacts.render_address_and_contact(frm);
   } else {
     frappe.contacts.clear_address_and_contact(frm);
+    frappe.reload_doc()
   }
 });
 
@@ -102,5 +103,12 @@ frappe.ui.form.on("Images", "form_render", function(frm, cdt, cdn){
     if (!is_viewable) {
       wrapper.empty();
     }
+  }
+})
+
+frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
+  if(frm.doc.__islocal) {
+    frm.save()
+    frm.reload_doc()
   }
 })

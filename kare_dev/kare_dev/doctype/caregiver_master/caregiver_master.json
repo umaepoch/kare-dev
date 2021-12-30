@@ -17,13 +17,14 @@
   "column_break_11",
   "gender",
   "address_details_section",
-  "add_address",
+  "address_html",
+  "website",
   "column_break_14",
   "address_type",
   "section_break_15",
   "aadhar_card_number",
   "section_break_14",
-  "table_16",
+  "image",
   "section_break_17",
   "education",
   "column_break_16",
@@ -94,12 +95,6 @@
    "label": "Address Details"
   },
   {
-   "fieldname": "add_address",
-   "fieldtype": "Link",
-   "label": "Add Address",
-   "options": "Address"
-  },
-  {
    "fieldname": "column_break_14",
    "fieldtype": "Column Break"
   },
@@ -121,12 +116,7 @@
   {
    "fieldname": "section_break_14",
    "fieldtype": "Section Break",
-   "label": "Images"
-  },
-  {
-   "fieldname": "table_16",
-   "fieldtype": "Table",
-   "options": "Images"
+   "label": "Image Details"
   },
   {
    "fieldname": "section_break_17",
@@ -156,9 +146,25 @@
    "fieldname": "type_of_employment",
    "fieldtype": "Data",
    "label": "Type Of Employment"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "Images"
   }
  ],
- "modified": "2021-12-17 15:43:26.841999",
+ "modified": "2021-12-30 12:50:11.635599",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Caregiver Master",
