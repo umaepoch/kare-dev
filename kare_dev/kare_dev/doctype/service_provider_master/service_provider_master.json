@@ -17,7 +17,8 @@
   "column_break_13",
   "gender",
   "address_details_section",
-  "add_address",
+  "address_html",
+  "website",
   "column_break_16",
   "address_type",
   "section_break_17",
@@ -91,12 +92,6 @@
    "label": "Address Details"
   },
   {
-   "fieldname": "add_address",
-   "fieldtype": "Link",
-   "label": "Add Address",
-   "options": "Address"
-  },
-  {
    "fieldname": "column_break_16",
    "fieldtype": "Column Break"
   },
@@ -140,9 +135,19 @@
    "fieldname": "service_provider_type",
    "fieldtype": "Table",
    "options": "Service Provider Type"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML"
   }
  ],
- "modified": "2021-12-17 16:18:20.307486",
+ "modified": "2021-12-30 14:22:01.932336",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Service Provider Master",
