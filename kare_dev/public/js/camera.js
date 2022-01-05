@@ -172,15 +172,16 @@ async function render() {
 	$e.find('.fc-bs').click(() =>
 	{
 		const data_url = frappe._.get_data_uri(video)
-		dialog.hide()
-
 		if (stream) {
 			const tracks = stream.getTracks();
 			tracks.forEach(track => track.stop());
 		}
 
-		if (callback)
+		dialog.hide()
+
+		if (callback) {
 			callback(data_url)
+		}
 	})
 }
 
