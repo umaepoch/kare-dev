@@ -18,9 +18,8 @@
   "gender",
   "address_details_section",
   "address_html",
-  "website",
   "column_break_14",
-  "address_type",
+  "website",
   "section_break_15",
   "aadhar_card_number",
   "section_break_14",
@@ -99,12 +98,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "address_type",
-   "fieldtype": "Select",
-   "label": "Address Type",
-   "options": "Permanent Address\nCurrent Address"
-  },
-  {
    "fieldname": "section_break_15",
    "fieldtype": "Section Break"
   },
@@ -164,7 +157,7 @@
    "options": "Images"
   }
  ],
- "modified": "2021-12-30 12:50:11.635599",
+ "modified": "2022-01-04 15:48:52.503706",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Caregiver Master",
