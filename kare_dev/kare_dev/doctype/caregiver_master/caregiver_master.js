@@ -6,7 +6,7 @@ frappe.ui.form.on("Caregiver Master", "refresh", function(frm, cdt, cdn){
   var doc = locals[cdt][cdn]
 
   frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Caregiver Master'}
-	frm.toggle_display(['address_html'], !frm.doc.__islocal);
+  frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
 
   if (!frm.doc.__islocal) {
     frappe.contacts.render_address_and_contact(frm);
