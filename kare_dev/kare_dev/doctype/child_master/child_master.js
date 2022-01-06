@@ -1,5 +1,3 @@
-// Copyright (c) 2021, Pavithra M R and contributors
-// For license information, please see license.txt
 frappe.require("/assets/kare_dev/js/camera.js")
 
 frappe.ui.form.on("Child Master", "refresh", function(frm, cdt, cdn){
@@ -49,7 +47,6 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
 
 
 });
-
 
 // API for creating image url.
 function create_image_url(doc) {
