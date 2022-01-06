@@ -19,7 +19,10 @@
   "gender",
   "address_details_section",
   "address_html",
+<<<<<<< HEAD
   "column_break_15",
+=======
+>>>>>>> c49e563459d79e82419445944df8db187b59c3b5
   "website",
   "section_break_16",
   "aadhar_card_number",
@@ -131,7 +134,11 @@
    "fieldtype": "Column Break"
   }
  ],
+<<<<<<< HEAD
  "modified": "2022-01-04 15:06:28.857804",
+=======
+ "modified": "2022-01-06 10:19:40.298827",
+>>>>>>> c49e563459d79e82419445944df8db187b59c3b5
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
