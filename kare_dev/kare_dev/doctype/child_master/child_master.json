@@ -14,13 +14,12 @@
   "last_name",
   "section_break_8",
   "date_of_birth",
-  "mothers_name",
+  "motherguardiancaregivers_name",
   "column_break_12",
   "gender",
   "address_details_section",
   "address_html",
   "column_break_15",
-  "website",
   "section_break_16",
   "aadhar_card_number",
   "images_section",
@@ -74,13 +73,6 @@
    "label": "Date Of Birth"
   },
   {
-   "fieldname": "mothers_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Mother's Name",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_12",
    "fieldtype": "Column Break"
   },
@@ -117,11 +109,6 @@
    "options": "Images"
   },
   {
-   "fieldname": "website",
-   "fieldtype": "Data",
-   "label": "Website"
-  },
-  {
    "fieldname": "address_html",
    "fieldtype": "HTML",
    "label": "Address HTML"
@@ -129,9 +116,16 @@
   {
    "fieldname": "column_break_15",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "motherguardiancaregivers_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mother/Guardian/Caregiver's Name",
+   "reqd": 1
   }
  ],
- "modified": "2022-01-04 15:06:28.857804",
+ "modified": "2022-01-06 15:51:50.896610",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
