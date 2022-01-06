@@ -1,152 +1,157 @@
 {
-  "autoname": "naming_series:",
-  "creation": "2021-12-17 15:37:07.232328",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-   "naming_series",
-   "child_details_section",
-   "first_name",
-   "column_break_4",
-   "middle_name",
-   "column_break_6",
-   "last_name",
-   "section_break_8",
-   "date_of_birth",
-   "mothers_name",
-   "column_break_12",
-   "gender",
-   "address_details_section",
-   "address_html",
-   "website",
-   "section_break_16",
-   "aadhar_card_number",
-   "images_section",
-   "image"
-  ],
-  "fields": [
-   {
-    "fieldname": "naming_series",
-    "fieldtype": "Select",
-    "label": "Record Number",
-    "options": "CHLD-"
-   },
-   {
-    "fieldname": "child_details_section",
-    "fieldtype": "Section Break",
-    "label": "Child Details",
-    "options": "fa fa-map-marker"
-   },
-   {
-    "fieldname": "first_name",
-    "fieldtype": "Data",
-    "in_list_view": 1,
-    "label": "First Name",
-    "reqd": 1
-   },
-   {
-    "fieldname": "column_break_4",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "middle_name",
-    "fieldtype": "Data",
-    "label": "Middle Name"
-   },
-   {
-    "fieldname": "column_break_6",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "last_name",
-    "fieldtype": "Data",
-    "label": "Last Name"
-   },
-   {
-    "fieldname": "section_break_8",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "date_of_birth",
-    "fieldtype": "Date",
-    "label": "Date Of Birth"
-   },
-   {
-    "fieldname": "mothers_name",
-    "fieldtype": "Data",
-    "in_list_view": 1,
-    "label": "Mother's Name",
-    "reqd": 1
-   },
-   {
-    "fieldname": "column_break_12",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "gender",
-    "fieldtype": "Select",
-    "label": "Gender",
-    "options": "Male\nFemale\nOther"
-   },
-   {
-    "fieldname": "address_details_section",
-    "fieldtype": "Section Break",
-    "label": "Address Details"
-   },
-   {
-    "fieldname": "section_break_16",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "aadhar_card_number",
-    "fieldtype": "Data",
-    "label": "Aadhar Card Number"
-   },
-   {
-    "fieldname": "images_section",
-    "fieldtype": "Section Break",
-    "label": "Image Details",
-    "options": "fa fa-map-marker"
-   },
-   {
-    "fieldname": "image",
-    "fieldtype": "Table",
-    "label": "Image",
-    "options": "Images"
-   },
-   {
-    "fieldname": "website",
-    "fieldtype": "Data",
-    "label": "Website"
-   },
-   {
-    "fieldname": "address_html",
-    "fieldtype": "HTML",
-    "label": "Address HTML"
-   }
-  ],
-  "modified": "2022-01-06 10:19:40.298827",
-  "modified_by": "Administrator",
-  "module": "kare_dev",
-  "name": "Child Master",
-  "owner": "Administrator",
-  "permissions": [
-   {
-    "create": 1,
-    "delete": 1,
-    "email": 1,
-    "export": 1,
-    "print": 1,
-    "read": 1,
-    "report": 1,
-    "role": "All",
-    "share": 1,
-    "write": 1
-   }
-  ],
-  "quick_entry": 1,
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "track_changes": 1
- }
+ "autoname": "naming_series:",
+ "creation": "2021-12-17 15:37:07.232328",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "child_details_section",
+  "first_name",
+  "column_break_4",
+  "middle_name",
+  "column_break_6",
+  "last_name",
+  "section_break_8",
+  "date_of_birth",
+  "mothers_name",
+  "column_break_12",
+  "gender",
+  "address_details_section",
+  "address_html",
+  "column_break_15",
+  "website",
+  "section_break_16",
+  "aadhar_card_number",
+  "images_section",
+  "image"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record Number",
+   "options": "CHLD-"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mother's Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "aadhar_card_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Card Number"
+  },
+  {
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Image Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "Images"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "modified": "2022-01-04 15:06:28.857804",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Child Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
