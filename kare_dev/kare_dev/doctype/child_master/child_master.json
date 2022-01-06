@@ -19,9 +19,8 @@
   "gender",
   "address_details_section",
   "address_html",
-  "website",
   "column_break_15",
-  "address_type",
+  "website",
   "section_break_16",
   "aadhar_card_number",
   "images_section",
@@ -97,16 +96,6 @@
    "label": "Address Details"
   },
   {
-   "fieldname": "column_break_15",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "address_type",
-   "fieldtype": "Select",
-   "label": "Address Type",
-   "options": "Permanent Address\nCurrent Address"
-  },
-  {
    "fieldname": "section_break_16",
    "fieldtype": "Section Break"
   },
@@ -136,9 +125,13 @@
    "fieldname": "address_html",
    "fieldtype": "HTML",
    "label": "Address HTML"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
   }
  ],
- "modified": "2021-12-27 16:54:54.561341",
+ "modified": "2022-01-04 15:06:28.857804",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
