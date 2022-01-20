@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 frappe.require("/assets/kare_dev/js/camera.js")
 
-frappe.ui.form.on("Child Master", "refresh", function(frm, cdt, cdn){
+frappe.ui.form.on("Child Master", "onload", function(frm, cdt, cdn){
   var doc = locals[cdt][cdn]
 
   frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Child Master'}
@@ -46,11 +46,7 @@ frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   } else {
     frappe.throw(__("To activate camera enter image name"))
   }
-
-
 });
-
-
 // API for creating image url.
 function create_image_url(doc) {
   let flag;
