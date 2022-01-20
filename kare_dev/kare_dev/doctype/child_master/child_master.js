@@ -16,7 +16,6 @@ frappe.ui.form.on("Child Master", "onload", function(frm, cdt, cdn){
   }
 });
 
-
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   let images = {}
   var doc = locals[cdt][cdn]
