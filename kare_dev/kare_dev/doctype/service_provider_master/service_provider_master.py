@@ -34,3 +34,11 @@ def create_image_url(doc):
 		return {"SC": False}
 	except Exception as ex:
 		return {"EX": ex}
+
+@frappe.whitelist()
+def get_saathi_details(name):
+	print("saathi",name)	
+	get_child_data=frappe.db.sql("""select `tabService Provider Master`.`first_name`,`tabService Provider Master`.`middle_name`,`tabService Provider Master`.`last_name` from `tabService Provider Master` where `tabService Provider Master`.`name`='"""+name+"""' """, as_dict=1)
+	print("saathi",get_child_data)
+	return get_saathi_details
+

@@ -18,9 +18,7 @@
   "gender",
   "address_details_section",
   "address_html",
-  "website",
   "column_break_16",
-  "address_type",
   "section_break_17",
   "aadhar_card_number",
   "section_break_13",
@@ -96,12 +94,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "address_type",
-   "fieldtype": "Select",
-   "label": "Address Type",
-   "options": "Permanent Address\nCurrent Address"
-  },
-  {
    "fieldname": "section_break_17",
    "fieldtype": "Section Break"
   },
@@ -137,17 +129,12 @@
    "options": "Service Provider Type"
   },
   {
-   "fieldname": "website",
-   "fieldtype": "Data",
-   "label": "Website"
-  },
-  {
    "fieldname": "address_html",
    "fieldtype": "HTML",
    "label": "Address HTML"
   }
  ],
- "modified": "2021-12-30 14:22:01.932336",
+ "modified": "2022-01-07 12:14:18.549030",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Service Provider Master",
