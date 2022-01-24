@@ -111,3 +111,30 @@ frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
     frm.reload_doc()
   }
 })
+
+frappe.ui.form.on("Service Provider Type", "service_provider_type", function(frm, cdt, cdn) {
+  var d = locals[cdt][cdn];
+  var type = frm.doc.service_provider_type;
+  console.log("type....."+JSON.stringify(type));
+  if(type.length >= 2)
+  {
+      frappe.msgprint("Only one Service Provider Type accepted");
+      
+  }
+  });
+  frappe.ui.form.on("Service Provider Master", "before_save", function(frm, cdt, cdn) {
+  var d = locals[cdt][cdn];
+  var type = frm.doc.service_provider_type;
+  console.log("type....."+JSON.stringify(type));
+  if(type.length >= 2)
+  {
+      frappe.validated = false;
+      frappe.msgprint("Cannot save the record, Service Provider Type is already selected once");
+  }
+  if(type.length === 0)
+  {
+      frappe.validated = false;
+      frappe.msgprint("Please select any one Service Provider Type");
+  }
+  
+  });
