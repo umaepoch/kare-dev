@@ -1,0 +1,75 @@
+{
+ "creation": "2022-01-25 15:59:10.405612",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "parent1",
+  "mothers_name",
+  "fathers_name",
+  "status",
+  "column_break_5",
+  "approximate_dateyear_of_death",
+  "occupation",
+  "parent_lives_with_child",
+  "parent_is_actively_involved_in_supporting_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "parent1",
+   "fieldtype": "Data",
+   "label": "Parent"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nAlive\nDeceased"
+  },
+  {
+   "fieldname": "approximate_dateyear_of_death",
+   "fieldtype": "Date",
+   "label": "Approximate Date/Year Of Death"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "parent_lives_with_child",
+   "fieldtype": "Data",
+   "label": "Parent Lives With Child"
+  },
+  {
+   "fieldname": "parent_is_actively_involved_in_supporting_child",
+   "fieldtype": "Data",
+   "label": "Parent Is Actively Involved In Supporting Child"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "label": "Mother's Name"
+  },
+  {
+   "fieldname": "fathers_name",
+   "fieldtype": "Data",
+   "label": "Father's Name"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-01-25 16:05:51.991999",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Details Of Biological Parents",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
