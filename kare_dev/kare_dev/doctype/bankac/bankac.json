@@ -94,12 +94,13 @@
   },
   {
    "fieldname": "account_holder_record",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Account Holder Record",
+   "options": "Child Master",
    "reqd": 1
   }
  ],
- "modified": "2021-12-17 15:56:54.059125",
+ "modified": "2022-01-07 12:10:29.240052",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "BankAC",
