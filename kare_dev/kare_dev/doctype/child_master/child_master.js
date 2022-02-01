@@ -2,19 +2,21 @@
 // For license information, please see license.txt
 frappe.require("/assets/kare_dev/js/camera.js")
 
-frappe.ui.form.on("Child Master", "onload", function(frm, cdt, cdn){
-  var doc = locals[cdt][cdn]
-
-  frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Child Master'}
-	frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
-
-  if (!frm.doc.__islocal) {
-    frappe.contacts.render_address_and_contact(frm);
-  } else {
-    frappe.contacts.clear_address_and_contact(frm);
-    frappe.reload_doc()
+frappe.ui.form.on('Child Master', {
+  refresh: function(frm, cdt, cdn) 
+  {
+   var doc = locals[cdt][cdn];
+   frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Child Master'}
+   frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
+  
+    if (!frm.doc.__islocal) {
+      frappe.contacts.render_address_and_contact(frm);
+    } else {
+      frappe.contacts.clear_address_and_contact(frm);
+      frappe.reload_doc();
+    }
   }
-});
+  });
 
 frappe.ui.form.on("Images","activate_camera", function(frm, cdt, cdn){
   let images = {}
