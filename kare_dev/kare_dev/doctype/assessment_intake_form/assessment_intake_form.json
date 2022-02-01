@@ -1,0 +1,576 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-01-24 14:59:11.566457",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "preliminary_fitment_report",
+  "child_details_section",
+  "child",
+  "child_name",
+  "motherguardiancaregivers_name",
+  "date_of_birth",
+  "column_break_7",
+  "gender",
+  "address_of_child",
+  "display_address",
+  "caregiver_details",
+  "caregiver",
+  "skill",
+  "employed",
+  "column_break_15",
+  "caregiver_name",
+  "education",
+  "type_of_employment",
+  "relationship_details",
+  "relationship_between_child_and_caregiver",
+  "saathi_details",
+  "name_of_saathi",
+  "coordinator_details",
+  "name_of_coordinator",
+  "column_break_25",
+  "case_type",
+  "section_break_28",
+  "delhi_resident",
+  "age",
+  "school_going",
+  "class",
+  "parent_motivation",
+  "total_income_of_family_per_month",
+  "column_break_32",
+  "parent_status",
+  "age_eligibility",
+  "name_of_school",
+  "motivation_to_get_educated",
+  "number_of_members_in_family",
+  "income_per_month_per_head",
+  "income_eligibility",
+  "images_section",
+  "image",
+  "date_of_reference",
+  "accepted",
+  "assessment_section_section",
+  "situational_analysis_of_the_problem",
+  "identifying_information_section",
+  "identifying_info",
+  "information_about_head_of_household",
+  "principal_occupation_of_family",
+  "who_is_the_primary_caregiver_in_the_family",
+  "relationship",
+  "details_of_biological_parents_section",
+  "details_of_biological_parents",
+  "section_break_57",
+  "data_58",
+  "parent_deseased",
+  "impact_for_family",
+  "economical_general_situation",
+  "complete__simple_swot_for_the_childfamily_section",
+  "strenghts",
+  "weaknesses",
+  "opportunities",
+  "threats",
+  "support",
+  "direct_family_support",
+  "extended_family_support",
+  "neighbourhood_support",
+  "community_support",
+  "others",
+  "support_by_govt",
+  "if_yes_list_the_assistance_that_the_family_receives",
+  "what_are_the_familys_unmet_needs_currently",
+  "in_what_way_would_the_kare_support_assist_the_family",
+  "coordinators_recommendation",
+  "sponsorship",
+  "mentoring",
+  "counseling",
+  "skill_development_for_child",
+  "column_break_82",
+  "career_counseling",
+  "one_time_investment_into_care_giver_for_self_sustainability",
+  "legal_quasi_legal_assistance_through_cwcdcpuother_legal_bodies",
+  "section_break_86",
+  "coordinators_comments_on_recommendation"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Record ID",
+   "options": "AAIF-"
+  },
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "bold": 1,
+   "fieldname": "child",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Child",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOther"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "display_address",
+   "fieldtype": "Small Text",
+   "label": "Display Address"
+  },
+  {
+   "fieldname": "caregiver_details",
+   "fieldtype": "Section Break",
+   "label": "Caregiver Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "caregiver",
+   "fieldtype": "Link",
+   "label": "Caregiver",
+   "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "skill",
+   "fieldtype": "Data",
+   "label": "Skill"
+  },
+  {
+   "fieldname": "employed",
+   "fieldtype": "Select",
+   "label": "Employed",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fieldname": "type_of_employment",
+   "fieldtype": "Data",
+   "label": "Type of Employment"
+  },
+  {
+   "fieldname": "relationship_details",
+   "fieldtype": "Section Break",
+   "label": "Relationship Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "saathi_details",
+   "fieldtype": "Section Break",
+   "label": "Saathi Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "name_of_saathi",
+   "fieldtype": "Data",
+   "label": "Name Of Saathi"
+  },
+  {
+   "fieldname": "coordinator_details",
+   "fieldtype": "Section Break",
+   "label": "Coordinator Details",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break",
+   "label": "Fitment Report Section"
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Data",
+   "label": "Case Type"
+  },
+  {
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "label": "Child Name"
+  },
+  {
+   "fieldname": "motherguardiancaregivers_name",
+   "fieldtype": "Data",
+   "label": "Mother/Guardian/Caregiver's Name"
+  },
+  {
+   "fieldname": "address_of_child",
+   "fieldtype": "Data",
+   "label": "Address Of Child"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "caregiver_name",
+   "fieldtype": "Data",
+   "label": "Caregiver Name"
+  },
+  {
+   "fieldname": "relationship_between_child_and_caregiver",
+   "fieldtype": "Select",
+   "label": "Relationship Between Child And Caregiver",
+   "options": "\nParent\nUncle\nAunt\nGrand Parent\nBrother\nCousin\nFamily Friend\nGuardian"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delhi_resident",
+   "fieldtype": "Data",
+   "label": "Delhi Resident"
+  },
+  {
+   "fieldname": "parent_status",
+   "fieldtype": "Data",
+   "label": "Parent Status"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "age_eligibility",
+   "fieldtype": "Data",
+   "label": "Age Eligibility"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "school_going",
+   "fieldtype": "Data",
+   "label": "School Going"
+  },
+  {
+   "fieldname": "name_of_school",
+   "fieldtype": "Data",
+   "label": "Name of School"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "label": "Class"
+  },
+  {
+   "fieldname": "motivation_to_get_educated",
+   "fieldtype": "Data",
+   "label": "Motivation to Get Educated"
+  },
+  {
+   "fieldname": "parent_motivation",
+   "fieldtype": "Data",
+   "label": "Parent Motivation"
+  },
+  {
+   "fieldname": "total_income_of_family_per_month",
+   "fieldtype": "Data",
+   "label": "Total Income Of Family Per Month"
+  },
+  {
+   "fieldname": "number_of_members_in_family",
+   "fieldtype": "Data",
+   "label": "Number Of Members In Family"
+  },
+  {
+   "fieldname": "income_per_month_per_head",
+   "fieldtype": "Data",
+   "label": "Income Per Month Per Head"
+  },
+  {
+   "fieldname": "income_eligibility",
+   "fieldtype": "Data",
+   "label": "Income Eligibility"
+  },
+  {
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Images"
+  },
+  {
+   "fieldname": "date_of_reference",
+   "fieldtype": "Data",
+   "label": "Date of Reference"
+  },
+  {
+   "fieldname": "accepted",
+   "fieldtype": "Data",
+   "label": "Accepted"
+  },
+  {
+   "fieldname": "assessment_section_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment Section"
+  },
+  {
+   "fieldname": "situational_analysis_of_the_problem",
+   "fieldtype": "Long Text",
+   "label": "Situational Analysis Of The Problem"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "Images"
+  },
+  {
+   "fieldname": "information_about_head_of_household",
+   "fieldtype": "Long Text",
+   "label": "Information About Head Of Household"
+  },
+  {
+   "fieldname": "principal_occupation_of_family",
+   "fieldtype": "Long Text",
+   "label": "Principal Occupation Of Family"
+  },
+  {
+   "fieldname": "preliminary_fitment_report",
+   "fieldtype": "Link",
+   "label": "Preliminary Fitment Report",
+   "options": "Preliminary Fitment Report"
+  },
+  {
+   "fieldname": "identifying_info",
+   "fieldtype": "Table",
+   "label": "Identifying Information",
+   "options": "Identifying Information"
+  },
+  {
+   "fieldname": "identifying_information_section",
+   "fieldtype": "Section Break",
+   "label": "Identifying Information"
+  },
+  {
+   "fieldname": "who_is_the_primary_caregiver_in_the_family",
+   "fieldtype": "Long Text",
+   "label": "Who Is The Primary Caregiver In The Family"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Long Text",
+   "label": "What Is The rellationship Of The Primary Caregiver In The Famly To The Child"
+  },
+  {
+   "fieldname": "details_of_biological_parents_section",
+   "fieldtype": "Section Break",
+   "label": "Details of Biological Parents"
+  },
+  {
+   "fieldname": "details_of_biological_parents",
+   "fieldtype": "Table",
+   "label": "Details of Biological Parents",
+   "options": "Details Of Biological Parents"
+  },
+  {
+   "fieldname": "section_break_57",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "data_58",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "parent_deseased",
+   "fieldtype": "Small Text",
+   "label": "If the child's parents are deceased how long has the Child lived with the current Caregivers"
+  },
+  {
+   "fieldname": "impact_for_family",
+   "fieldtype": "Long Text",
+   "label": "Describe overall health of family members (major disease/chronic,fatal illness/disability) that can have an impact on the family for future"
+  },
+  {
+   "fieldname": "economical_general_situation",
+   "fieldtype": "Long Text",
+   "label": "Describe the family\u2019s economic and general living situation"
+  },
+  {
+   "fieldname": "complete__simple_swot_for_the_childfamily_section",
+   "fieldtype": "Section Break",
+   "label": "Complete  simple SLOT for the Child/Family"
+  },
+  {
+   "fieldname": "strenghts",
+   "fieldtype": "Long Text",
+   "label": "Strenghts"
+  },
+  {
+   "fieldname": "weaknesses",
+   "fieldtype": "Long Text",
+   "label": "Weaknesses"
+  },
+  {
+   "fieldname": "opportunities",
+   "fieldtype": "Long Text",
+   "label": "Opportunities"
+  },
+  {
+   "fieldname": "threats",
+   "fieldtype": "Long Text",
+   "label": "Threats"
+  },
+  {
+   "fieldname": "support",
+   "fieldtype": "Long Text",
+   "label": "Type of support currently available for their survival  include Financial And Non Financial Information"
+  },
+  {
+   "fieldname": "direct_family_support",
+   "fieldtype": "Long Text",
+   "label": "Direct Family Support"
+  },
+  {
+   "fieldname": "extended_family_support",
+   "fieldtype": "Long Text",
+   "label": "Extended Family Support"
+  },
+  {
+   "fieldname": "neighbourhood_support",
+   "fieldtype": "Long Text",
+   "label": "Neighbourhood Support"
+  },
+  {
+   "fieldname": "community_support",
+   "fieldtype": "Long Text",
+   "label": "Community Support"
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Long Text",
+   "label": "Others"
+  },
+  {
+   "fieldname": "support_by_govt",
+   "fieldtype": "Select",
+   "label": "Is any family member receiving support through Government schemes or support through food or rations through other NGOs such as World Vision",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "if_yes_list_the_assistance_that_the_family_receives",
+   "fieldtype": "Long Text",
+   "label": "If Yes list the assistance that the family receives"
+  },
+  {
+   "fieldname": "what_are_the_familys_unmet_needs_currently",
+   "fieldtype": "Long Text",
+   "label": "What are the family's unmet needs currently"
+  },
+  {
+   "fieldname": "in_what_way_would_the_kare_support_assist_the_family",
+   "fieldtype": "Long Text",
+   "label": "In what way would the KARE support assist the family"
+  },
+  {
+   "default": "0",
+   "fieldname": "coordinators_recommendation",
+   "fieldtype": "Section Break",
+   "label": "Coordinators Recommendation"
+  },
+  {
+   "fieldname": "coordinators_comments_on_recommendation",
+   "fieldtype": "Long Text",
+   "label": "Coordinators Comments on Recommendation"
+  },
+  {
+   "default": "0",
+   "fieldname": "sponsorship",
+   "fieldtype": "Check",
+   "label": "Sponsorship"
+  },
+  {
+   "default": "0",
+   "fieldname": "mentoring",
+   "fieldtype": "Check",
+   "label": "Mentoring"
+  },
+  {
+   "default": "0",
+   "fieldname": "counseling",
+   "fieldtype": "Check",
+   "label": "Counseling"
+  },
+  {
+   "default": "0",
+   "fieldname": "skill_development_for_child",
+   "fieldtype": "Check",
+   "label": "Skill Development for Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "career_counseling",
+   "fieldtype": "Check",
+   "label": "Career Counseling"
+  },
+  {
+   "default": "0",
+   "fieldname": "one_time_investment_into_care_giver_for_self_sustainability",
+   "fieldtype": "Check",
+   "label": "One time investment into Care Giver for self sustainability"
+  },
+  {
+   "default": "0",
+   "fieldname": "legal_quasi_legal_assistance_through_cwcdcpuother_legal_bodies",
+   "fieldtype": "Check",
+   "label": "Legal /quasi legal assistance through CWC/DCPU/other legal bodies"
+  },
+  {
+   "fieldname": "column_break_82",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_86",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "modified": "2022-01-25 18:02:01.587873",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Assessment Intake Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
