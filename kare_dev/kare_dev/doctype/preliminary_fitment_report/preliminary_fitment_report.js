@@ -114,34 +114,42 @@ frappe.ui.form.on('Preliminary Fitment Report', {
 		}
 		}
 	});
-	
-	frappe.ui.form.on('Preliminary Fitment Report', {
-	case_proposal: function(frm, cdt, cdn) 
-		{
-		var d = locals[cdt][cdn];
-		var date_of_birth=d.date_of_birth;    
-		var age = get_age(date_of_birth);   
-		console.log("age",age);
-		cur_frm.set_value("age",age[0]+" Years, "+age[1]+" Months");
+frappe.ui.form.on('Preliminary Fitment Report', {
+case_proposal: function(frm, cdt, cdn) 
+	{
+	var d = locals[cdt][cdn];
+	var date_of_birth=d.date_of_birth;    
+	var age = get_age(date_of_birth);   
+	console.log("age",age);
+	cur_frm.set_value("age",age[0]+" Years, "+age[1]+" Months");
+	if(age[0] >=5 && age[0] <=17)
+	{
+		cur_frm.set_value("age_eligibility","Yes")
 		}
-	});
-	function get_age(date_of_birth) {
-		var age = "";
-		frappe.call({
-			method: `kare_dev.kare_dev.doctype.preliminary_fitment_report.preliminary_fitment_report.calculateAge`,
-			args: {
-				 "date_of_birth": date_of_birth
-				  },
-				async: false,
-				callback: function(r) {
-				if (r.message) {
-				age = r.message;
-				}    
-				}
-				});
-				return  age;
-				}	
-	   
+		else
+			{
+			cur_frm.set_value("age_eligibility","No")
+			}
+			}
+			});
+function get_age(date_of_birth) {
+var age = "";
+	frappe.call({
+	method: `kare_dev.kare_dev.doctype.preliminary_fitment_report.preliminary_fitment_report.calculateAge`,
+	args: {
+			"date_of_birth": date_of_birth
+			},
+			async: false,
+			callback: function(r) {
+			if (r.message) {
+			age = r.message;
+			}    
+			}
+			});
+			return  age;
+		}	
+				   
+
 	
 	
 	

@@ -36,6 +36,7 @@
   "delhi_resident",
   "parent_status",
   "age",
+  "age_eligibility",
   "school_going",
   "name_of_school",
   "class",
@@ -85,7 +86,7 @@
   {
    "fieldname": "mothers_name",
    "fieldtype": "Data",
-   "label": "Mother's Name"
+   "label": "Mother/Guardian/Caregiver's Name"
   },
   {
    "fieldname": "column_break_6",
@@ -304,10 +305,17 @@
    "options": "Preliminary Fitment Report",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "age_eligibility",
+   "fieldtype": "Select",
+   "label": "Age Eligibility",
+   "options": "Yes\nNo",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
- "modified": "2022-01-19 16:55:14.609127",
+ "modified": "2022-01-27 10:59:51.209829",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Preliminary Fitment Report",
