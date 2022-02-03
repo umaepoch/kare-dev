@@ -1,0 +1,81 @@
+{
+ "autoname": "field:questions",
+ "creation": "2022-01-27 15:26:01.082414",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "questions",
+  "section_break_2",
+  "area",
+  "5_to_9",
+  "10_to_12",
+  "13_to_15",
+  "16_to_18"
+ ],
+ "fields": [
+  {
+   "fieldname": "area",
+   "fieldtype": "Select",
+   "label": "Area",
+   "options": "\nPhysical Development\nEmotional Development\nSocial Development\nIntellectual Development\nSpiritual Development"
+  },
+  {
+   "default": "0",
+   "fieldname": "5_to_9",
+   "fieldtype": "Check",
+   "label": "5 to 9"
+  },
+  {
+   "default": "0",
+   "fieldname": "10_to_12",
+   "fieldtype": "Check",
+   "label": "10 to 12"
+  },
+  {
+   "default": "0",
+   "fieldname": "13_to_15",
+   "fieldtype": "Check",
+   "label": "13 to 15"
+  },
+  {
+   "default": "0",
+   "fieldname": "16_to_18",
+   "fieldtype": "Check",
+   "label": "16 to 18"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "questions",
+   "fieldtype": "Data",
+   "label": "Questions",
+   "unique": 1
+  }
+ ],
+ "modified": "2022-01-27 16:21:36.001840",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Questions",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
