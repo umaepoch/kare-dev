@@ -1,0 +1,44 @@
+{
+ "creation": "2022-01-27 15:06:52.725546",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "questions",
+  "area",
+  "age"
+ ],
+ "fields": [
+  {
+   "fieldname": "questions",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Questions"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Area",
+   "options": "\nPhysical Development\nEmotional Development\nSocial Development\nIntellectual Development\nSpiritual Development"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Age",
+   "options": "\n5 to 9\n10 to 12\n13 to 15\n16 to 18"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-01-27 16:32:51.528271",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Baseline Questions Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
