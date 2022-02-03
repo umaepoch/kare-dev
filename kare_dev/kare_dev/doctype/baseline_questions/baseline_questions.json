@@ -1,0 +1,52 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-02-01 20:26:42.303482",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "fetch_questions",
+  "baseline_questions_ods_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "fetch_questions",
+   "fieldtype": "Button",
+   "label": "Fetch Questions"
+  },
+  {
+   "fieldname": "baseline_questions_ods_child",
+   "fieldtype": "Table",
+   "label": "Baseline Questions Child Table",
+   "options": "Baseline Questions Child"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "series",
+   "options": "BSLQN-"
+  }
+ ],
+ "modified": "2022-02-02 15:07:02.259927",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Baseline Questions",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
