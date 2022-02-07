@@ -26,7 +26,7 @@ frappe.ui.form.on('Case Master', {
 	  console.log("entered into function");
 	  var case_d = "";
 	  frappe.call({
-		method: `kare_dev.kare_dev.doctype.preliminary_fitment_report.preliminary_fitment_report.get_case_details`,
+		method: `kare_dev.kare_dev.doctype.case_master.case_master.get_case_details`,
 		args: {
 			 "case_proposal": case_proposal
 			  },
