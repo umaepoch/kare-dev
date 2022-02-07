@@ -116,9 +116,8 @@
   },
   {
    "fieldname": "address_of_child",
-   "fieldtype": "Link",
-   "label": "Address Of Child",
-   "options": "Address"
+   "fieldtype": "Small Text",
+   "label": "Address Of Child"
   },
   {
    "fieldname": "images",
@@ -316,7 +315,7 @@
    "label": "Average Days Between Visits"
   }
  ],
- "modified": "2021-12-17 16:23:36.334615",
+ "modified": "2022-02-07 13:14:57.890195",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Master",
