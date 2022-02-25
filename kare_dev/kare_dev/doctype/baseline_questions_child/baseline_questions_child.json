@@ -4,9 +4,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "record_no",
   "questions",
   "area",
-  "age"
+  "age",
+  "options",
+  "actions"
  ],
  "fields": [
   {
@@ -25,13 +28,31 @@
   {
    "fieldname": "age",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Age",
    "options": "\n5 to 9\n10 to 12\n13 to 15\n16 to 18"
+  },
+  {
+   "fieldname": "record_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Record No"
+  },
+  {
+   "fieldname": "options",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Options",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "actions",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Actions"
   }
  ],
  "istable": 1,
- "modified": "2022-01-27 16:32:51.528271",
+ "modified": "2022-02-14 15:33:22.429827",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Baseline Questions Child",
