@@ -4,8 +4,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "record_no",
   "questions",
-  "options"
+  "options",
+  "actions"
  ],
  "fields": [
   {
@@ -20,10 +22,22 @@
    "in_list_view": 1,
    "label": "Options",
    "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "record_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Record No",
+   "options": "Baseline Questions"
+  },
+  {
+   "fieldname": "actions",
+   "fieldtype": "Small Text",
+   "label": "Actions"
   }
  ],
  "istable": 1,
- "modified": "2022-02-02 13:10:25.820910",
+ "modified": "2022-02-15 09:41:01.445072",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Social Development",
