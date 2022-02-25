@@ -264,42 +264,150 @@ age: function(frm, cdt, cdn) {
                 return  data;
                 }
 
-/*
 frappe.ui.form.on('Physical Development', {
-	options : function(frm, cdt, cdn) 
-		{
-		var d = locals[cdt][cdn];
-		var options = d.options;
-		var record_no = d.record_no;
-        console.log("options",d.options);
-        console.log("record_no",d.record_no);
-        var questionns_actions = fetch_actions(options,record_no);   
-    
-        var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
-		console.log("actions_need_to_be_taken",actions_need_to_be_taken);
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions(options,record_no);   
 		
-		d.actions = actions_need_to_be_taken;
-        frm.refresh_field("baseline_questions_ods_child");
-		}
-		});
-	function fetch_actions(options,record_no)
-	{
-		var question = "";
-		frappe.call({
-		method: `kare_dev.kare_dev.doctype.baseline_questions.baseline_questions.select_action`,
-				args: {
-					  
-					  "parent":record_no,
-					  "options": options
-					  },
-					async: false,
-					callback: function(r) {
-					if (r.message) {
-					question = r.message;
-					}    
-					}
-					});
-					return  question;
-					}	
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken111",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("physical_development");
+			}
+			});
+		function fetch_actions(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
 	
-	*/
+	frappe.ui.form.on('Emotional Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_emotional(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Emotional Development");
+			}
+			});
+		function fetch_actions_emotional(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+	
+	frappe.ui.form.on('Social Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_social(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Social Development");
+			}
+			});
+		function fetch_actions_social(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+	
+	frappe.ui.form.on('Intellectual Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_intel(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Intellectual Development");
+			}
+			});
+		function fetch_actions_intel(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	

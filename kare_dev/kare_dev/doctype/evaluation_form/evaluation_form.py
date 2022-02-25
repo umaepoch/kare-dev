@@ -45,3 +45,10 @@ def get_intellectual_development_questions(age):
 	get_intellectual_questions=frappe.db.sql("""select options,record_no,questions,actions from `tabBaseline Questions Child` where area="Intellectual Development" and age='"""+age+"""' """, as_dict=1)
 	print("get_intellectual_questions",get_intellectual_questions)
 	return get_intellectual_questions
+
+@frappe.whitelist()
+def select_action(parent,options):
+	get_action_details=frappe.db.sql("""select `tabActions`.`options`,`tabActions`.`actions_need_to_be_taken`,`tabActions`.`parent` from `tabActions` where parent='"""+parent+"""' and options='"""+options+"""' """, as_dict=1)
+	print("actions",get_action_details)
+	return get_action_details
+
