@@ -1,0 +1,210 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-02-09 11:57:44.388562",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ssg_code",
+  "child",
+  "name_of_child",
+  "name_of_saathi",
+  "name_of_coordinator",
+  "section_break_5",
+  "date_of_evaluation",
+  "age",
+  "strongly_disagreeextremely_low",
+  "normal_parameters",
+  "strongly_agree_extremely_high",
+  "section_break_6",
+  "physical_development",
+  "emotional_development",
+  "social_development",
+  "intellectual_development",
+  "narrative_questions_section",
+  "tell_us_about_your_likes_and_your_dislikes",
+  "tell_us_about_some_fun_things_you_like_to_do",
+  "tell_us_about_your_school_and_your_friends",
+  "tell_us_about_any_special_fun_day_you_had_recently",
+  "for_the_caregiver_section",
+  "general_through_behavior",
+  "if_you_had_any_problems_how_did_you_cope_with_it",
+  "what_would_you_like_to_change_if_you_had_the_opportunity",
+  "for_the_coordinator_section",
+  "impression"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "EVAL-"
+  },
+  {
+   "fieldname": "ssg_code",
+   "fieldtype": "Data",
+   "label": "SSG Code"
+  },
+  {
+   "fieldname": "child",
+   "fieldtype": "Link",
+   "label": "Child",
+   "options": "Child Master"
+  },
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "label": "Name Of Child"
+  },
+  {
+   "fieldname": "name_of_saathi",
+   "fieldtype": "Data",
+   "label": "Name Of Saathi"
+  },
+  {
+   "fieldname": "name_of_coordinator",
+   "fieldtype": "Data",
+   "label": "Name Of Coordinator"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_evaluation",
+   "fieldtype": "Date",
+   "label": "Date Of Evaluation"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Select",
+   "label": "Age ",
+   "options": "\n5 to 9\n10 to 12\n13 to 15\n16 to 18"
+  },
+  {
+   "default": "0",
+   "fieldname": "strongly_disagreeextremely_low",
+   "fieldtype": "Check",
+   "label": "1 - strongly disagree/extremely low"
+  },
+  {
+   "default": "0",
+   "fieldname": "normal_parameters",
+   "fieldtype": "Check",
+   "label": "3 - normal parameters"
+  },
+  {
+   "default": "0",
+   "fieldname": "strongly_agree_extremely_high",
+   "fieldtype": "Check",
+   "label": "5 - strongly agree/extremely high"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "physical_development",
+   "fieldtype": "Table",
+   "label": "Physical Development",
+   "options": "Physical Development"
+  },
+  {
+   "fieldname": "emotional_development",
+   "fieldtype": "Table",
+   "label": "Emotional Development",
+   "options": "Emotional Development"
+  },
+  {
+   "fieldname": "social_development",
+   "fieldtype": "Table",
+   "label": "Social Development",
+   "options": "Social Development"
+  },
+  {
+   "fieldname": "intellectual_development",
+   "fieldtype": "Table",
+   "label": "Intellectual Development",
+   "options": "Intellectual Development"
+  },
+  {
+   "fieldname": "narrative_questions_section",
+   "fieldtype": "Section Break",
+   "label": "Narrative Questions - For the child"
+  },
+  {
+   "fieldname": "tell_us_about_your_likes_and_your_dislikes",
+   "fieldtype": "Small Text",
+   "label": "Tell us about your likes and your dislikes"
+  },
+  {
+   "fieldname": "tell_us_about_some_fun_things_you_like_to_do",
+   "fieldtype": "Small Text",
+   "label": "Tell us about some fun things you like to do"
+  },
+  {
+   "fieldname": "tell_us_about_your_school_and_your_friends",
+   "fieldtype": "Small Text",
+   "label": "Tell us about your school and your friends"
+  },
+  {
+   "fieldname": "tell_us_about_any_special_fun_day_you_had_recently",
+   "fieldtype": "Small Text",
+   "label": "Tell us about any special fun day you had recently"
+  },
+  {
+   "fieldname": "for_the_caregiver_section",
+   "fieldtype": "Section Break",
+   "label": "For the caregiver"
+  },
+  {
+   "fieldname": "general_through_behavior",
+   "fieldtype": "Small Text",
+   "label": "Tell us how the child has been in general through behavior, health, education and social life in the last few months"
+  },
+  {
+   "fieldname": "if_you_had_any_problems_how_did_you_cope_with_it",
+   "fieldtype": "Small Text",
+   "label": "If you had any problems, how did you cope with it"
+  },
+  {
+   "fieldname": "what_would_you_like_to_change_if_you_had_the_opportunity",
+   "fieldtype": "Small Text",
+   "label": "What would you like to change if you had the opportunity"
+  },
+  {
+   "fieldname": "for_the_coordinator_section",
+   "fieldtype": "Section Break",
+   "label": "For the Coordinator"
+  },
+  {
+   "fieldname": "impression",
+   "fieldtype": "Small Text",
+   "label": "What is  your impression of the child and his/her family in terms of overall development, care and situation"
+  }
+ ],
+ "modified": "2022-02-09 13:13:57.981641",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Evaluation Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
