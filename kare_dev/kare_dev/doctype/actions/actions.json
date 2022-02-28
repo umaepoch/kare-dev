@@ -1,0 +1,35 @@
+{
+ "creation": "2022-02-10 11:15:51.069993",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "options",
+  "actions_need_to_be_taken"
+ ],
+ "fields": [
+  {
+   "fieldname": "options",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Options"
+  },
+  {
+   "fieldname": "actions_need_to_be_taken",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Actions Need To Be Taken"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-02-10 11:47:18.082333",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Actions",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
