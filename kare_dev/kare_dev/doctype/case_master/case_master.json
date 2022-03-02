@@ -315,7 +315,7 @@
    "label": "Average Days Between Visits"
   }
  ],
- "modified": "2022-02-07 13:14:57.890195",
+ "modified": "2022-03-02 13:56:47.823633",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Master",
@@ -335,6 +335,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "child,name_of_child,caregiver,name_of_caregiver",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
