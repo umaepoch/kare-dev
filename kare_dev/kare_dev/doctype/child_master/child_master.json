@@ -2,6 +2,7 @@
  "autoname": "naming_series:",
  "creation": "2021-12-17 15:37:07.232328",
  "doctype": "DocType",
+ "document_type": "Setup",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -125,7 +126,7 @@
    "reqd": 1
   }
  ],
- "modified": "2022-02-01 16:31:19.700131",
+ "modified": "2022-03-02 13:18:58.475757",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
@@ -145,7 +146,9 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "first_name,middle_name,last_name,motherguardiancaregivers_name,gender",
  "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_order": "ASC",
+ "title_field": "first_name",
  "track_changes": 1
 }
