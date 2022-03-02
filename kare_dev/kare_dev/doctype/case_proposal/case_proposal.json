@@ -253,7 +253,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2022-01-11 11:32:37.829024",
+ "modified": "2022-03-02 13:51:46.998160",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Proposal",
@@ -273,6 +273,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "child,name_of_child,caregiver,name_of_caregiver",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
