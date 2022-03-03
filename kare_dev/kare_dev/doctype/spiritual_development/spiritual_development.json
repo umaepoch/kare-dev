@@ -1,0 +1,49 @@
+{
+ "creation": "2022-01-28 14:47:34.935164",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "record_no",
+  "questions",
+  "options",
+  "actions"
+ ],
+ "fields": [
+  {
+   "fieldname": "questions",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Questions"
+  },
+  {
+   "fieldname": "options",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Options",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "record_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Record No"
+  },
+  {
+   "fieldname": "actions",
+   "fieldtype": "Small Text",
+   "label": "Actions"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-03-03 12:21:26.726016",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Spiritual Development",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
