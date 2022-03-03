@@ -81,9 +81,11 @@ age: function(frm, cdt, cdn) {
     for(var j=0;j<physical_development_questions.length;j++)
     {
 	var questions = physical_development_questions[j].questions;
+	var record_no = physical_development_questions[j].record_no;
+	
     var physical_development_child = cur_frm.add_child("physical_development");
-	frappe.model.set_value(physical_development_child.doctype, physical_development_child.name, "questions", questions);
-
+    frappe.model.set_value(physical_development_child.doctype, physical_development_child.name, "record_no", record_no);
+    frappe.model.set_value(physical_development_child.doctype, physical_development_child.name, "questions", questions);
        }
      cur_frm.refresh_field("physical_development");
 }
@@ -117,9 +119,11 @@ age: function(frm, cdt, cdn) {
     console.log("emotional_development_questions",emotional_development_questions);
     for(var j=0;j<emotional_development_questions.length;j++){
 	var questions = emotional_development_questions[j].questions;
+	var record_no = emotional_development_questions[j].record_no;
 
     var emotional_development_child = cur_frm.add_child("emotional_development");
-	frappe.model.set_value(emotional_development_child.doctype, emotional_development_child.name, "questions", questions);
+    frappe.model.set_value(emotional_development_child.doctype, emotional_development_child.name, "questions", questions);
+	frappe.model.set_value(emotional_development_child.doctype, emotional_development_child.name, "record_no", record_no);
 
        }
     cur_frm.refresh_field("emotional_development");
@@ -154,9 +158,11 @@ age: function(frm, cdt, cdn) {
     console.log("social_development_questions",social_development_questions);
     for(var j=0;j<social_development_questions.length;j++){
 	var questions = social_development_questions[j].questions;
+	var record_no = social_development_questions[j].record_no;
 
     var social_development_child = cur_frm.add_child("social_development");
-	frappe.model.set_value(social_development_child.doctype, social_development_child.name, "questions", questions);
+    frappe.model.set_value(social_development_child.doctype, social_development_child.name, "questions", questions);
+	frappe.model.set_value(social_development_child.doctype, social_development_child.name, "record_no", record_no);
 
        }
     cur_frm.refresh_field("social_development");
@@ -184,7 +190,7 @@ age: function(frm, cdt, cdn) {
 
 frappe.ui.form.on('Baseline Form', {
 age: function(frm, cdt, cdn) {
-    debugger;
+   
     var d = locals[cdt][cdn];
     var age = d.age;
     cur_frm.clear_table("intellectual_development"); 
@@ -194,9 +200,11 @@ age: function(frm, cdt, cdn) {
     for(var j=0;j<intellectual_development_questions.length;j++)
     {
 	var questions = intellectual_development_questions[j].questions;
+	var record_no = intellectual_development_questions[j].record_no;
 
     var intellectual_development_child = cur_frm.add_child("intellectual_development");
-	frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "questions", questions);
+    frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "questions", questions);
+	frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "record_no", record_no);
 
        
     }
@@ -222,3 +230,237 @@ age: function(frm, cdt, cdn) {
                 });
                 return  data;
                 }
+                
+                
+                
+                
+frappe.ui.form.on('Baseline Form', {
+    age: function(frm, cdt, cdn) {
+    var d = locals[cdt][cdn];
+    var age = d.age;
+    console.log("spiritual_development_questions",d.age);
+    cur_frm.clear_table("spiritual_development"); 
+    var spiritual_development_questions = fetch_spiritual_development(age);
+   
+    console.log("spiritual_development_questions",spiritual_development_questions);
+    for(var j=0;j<spiritual_development_questions.length;j++)
+    {
+	var questions = spiritual_development_questions[j].questions;
+	var record_no = spiritual_development_questions[j].record_no;
+
+    var spiritual_development_child = cur_frm.add_child("spiritual_development");
+    frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "questions", questions);
+	frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "record_no", record_no);
+
+       
+    }
+           frm.refresh_field("spiritual_development");
+                      
+            }
+            });
+        function fetch_spiritual_development(age)
+        {   
+            console.log("entered into function");
+            var data = "";
+            frappe.call({
+                    method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.get_spiritual_development_questions`,
+                    args: {
+                     "age": age
+                            },
+                        async: false,
+                        callback: function(r) {
+                        if (r.message) 
+                        {
+                         data = r.message;
+                        }    
+                        }
+                        });
+                        return  data;
+                       }
+                    
+                
+                
+frappe.ui.form.on('Physical Development', {
+options : function(frm, cdt, cdn) 
+	{
+	    var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken111",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("physical_development");
+			}
+			});
+		function fetch_actions(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+	
+	frappe.ui.form.on('Emotional Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_emotional(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Emotional Development");
+			}
+			});
+		function fetch_actions_emotional(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+	
+	frappe.ui.form.on('Social Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_social(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Social Development");
+			}
+			});
+		function fetch_actions_social(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+	
+	frappe.ui.form.on('Intellectual Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_intel(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Intellectual Development");
+			}
+			});
+		function fetch_actions_intel(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+						
+frappe.ui.form.on('Spiritual Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_intel(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Intellectual Development");
+			}
+			});
+		function fetch_actions_intel(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	

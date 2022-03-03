@@ -22,6 +22,7 @@
   "emotional_development",
   "social_development",
   "intellectual_development",
+  "spiritual_development",
   "narrative_questions_section",
   "tell_us_about_your_likes_and_your_dislikes",
   "tell_us_about_some_fun_things_you_like_to_do",
@@ -182,9 +183,15 @@
    "fieldtype": "Select",
    "label": "Series",
    "options": "BSLINE-"
+  },
+  {
+   "fieldname": "spiritual_development",
+   "fieldtype": "Table",
+   "label": "Spiritual Development",
+   "options": "Spiritual Development"
   }
  ],
- "modified": "2022-02-03 12:44:44.552267",
+ "modified": "2022-03-03 13:37:10.638185",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Baseline Form",

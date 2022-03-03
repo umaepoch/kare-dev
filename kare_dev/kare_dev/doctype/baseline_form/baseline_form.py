@@ -24,24 +24,36 @@ def get_child(child):
 
 @frappe.whitelist()
 def get_physical_development_questions(age):
-	get_physical_questions=frappe.db.sql("""select questions from `tabBaseline Questions Child` where area="Physical Development" and age='"""+age+"""' """, as_dict=1)
+	get_physical_questions=frappe.db.sql("""select questions,record_no from `tabBaseline Questions Child` where area="Physical Development" and age='"""+age+"""' """, as_dict=1)
 	print("get_phy_questions_details",get_physical_questions)
 	return get_physical_questions
 
 @frappe.whitelist()
 def get_emotional_development_questions(age):
-	get_emotional_questions=frappe.db.sql("""select questions from `tabBaseline Questions Child` where area="Emotional Development" and age='"""+age+"""' """, as_dict=1)
+	get_emotional_questions=frappe.db.sql("""select questions,record_no from `tabBaseline Questions Child` where area="Emotional Development" and age='"""+age+"""' """, as_dict=1)
 	print("get_emotional_questions",get_emotional_questions)
 	return get_emotional_questions
 
 @frappe.whitelist()
 def get_social_development_questions(age):
-	get_social_questions=frappe.db.sql("""select questions from `tabBaseline Questions Child` where area="Social Development" and age='"""+age+"""' """, as_dict=1)
+	get_social_questions=frappe.db.sql("""select questions,record_no from `tabBaseline Questions Child` where area="Social Development" and age='"""+age+"""' """, as_dict=1)
 	print("get_social_questions",get_social_questions)
 	return get_social_questions
 
 @frappe.whitelist()
 def get_intellectual_development_questions(age):
-	get_intellectual_questions=frappe.db.sql("""select questions from `tabBaseline Questions Child` where area="Intellectual Development" and age='"""+age+"""' """, as_dict=1)
+	get_intellectual_questions=frappe.db.sql("""select questions,record_no from `tabBaseline Questions Child` where area="Intellectual Development" and age='"""+age+"""' """, as_dict=1)
 	print("get_intellectual_questions",get_intellectual_questions)
 	return get_intellectual_questions
+
+@frappe.whitelist()
+def get_spiritual_development_questions(age):
+	get_spiritual_questions=frappe.db.sql("""select record_no,questions from `tabBaseline Questions Child` where area="Spiritual Development" and age='"""+age+"""' """, as_dict=1)
+	print("get_spiritual_questions",get_spiritual_questions)
+	return get_spiritual_questions
+
+@frappe.whitelist()
+def select_action(parent,options):
+	get_action_details=frappe.db.sql("""select `tabActions`.`options`,`tabActions`.`actions_need_to_be_taken`,`tabActions`.`parent` from `tabActions` where parent='"""+parent+"""' and options='"""+options+"""' """, as_dict=1)
+	print("actions",get_action_details)
+	return get_action_details
