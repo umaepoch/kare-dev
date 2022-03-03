@@ -218,51 +218,101 @@ age: function(frm, cdt, cdn) {
                 return  data;
                 }
 
+
+
+                frappe.ui.form.on('Evaluation Form', {
+                    age: function(frm, cdt, cdn) {
+                       
+                        var d = locals[cdt][cdn];
+                        var age = d.age;
+                        cur_frm.clear_table("intellectual_development"); 
+                        var intellectual_development_questions = fetch_intellectual_development(age);
+                       
+                        console.log("intellectual_development_questions",intellectual_development_questions);
+                        for(var j=0;j<intellectual_development_questions.length;j++)
+                        {
+                        var options = intellectual_development_questions[j].options;
+                        var record_no = intellectual_development_questions[j].record_no;
+                        var questions = intellectual_development_questions[j].questions;
+                        var actions = intellectual_development_questions[j].actions;
+                    
+                        var intellectual_development_child = cur_frm.add_child("intellectual_development");
+                        frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "options", options);
+                        frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "record_no", record_no);
+                        frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "questions", questions);
+                        frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "actions", actions);
+                           }
+                       frm.refresh_field("intellectual_development");
+                      
+                    }
+                        });
+                            function fetch_intellectual_development(age)
+                            {   
+                                console.log("entered into function");
+                                var data = "";
+                                frappe.call({
+                                method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.get_intellectual_development_questions`,
+                                args: {
+                                     "age": age
+                                      },
+                                    async: false,
+                                    callback: function(r) {
+                                    if (r.message) 
+                                    {
+                                    data = r.message;
+                                    }    
+                                        }
+                                    });
+                                    return  data;
+                                    }
+
 frappe.ui.form.on('Evaluation Form', {
 age: function(frm, cdt, cdn) {
-   
+                       
     var d = locals[cdt][cdn];
     var age = d.age;
-    cur_frm.clear_table("intellectual_development"); 
-    var intellectual_development_questions = fetch_intellectual_development(age);
-   
-    console.log("intellectual_development_questions",intellectual_development_questions);
-    for(var j=0;j<intellectual_development_questions.length;j++)
-    {
-	var options = intellectual_development_questions[j].options;
-	var record_no = intellectual_development_questions[j].record_no;
-	var questions = intellectual_development_questions[j].questions;
-	var actions = intellectual_development_questions[j].actions;
-
-    var intellectual_development_child = cur_frm.add_child("intellectual_development");
-    frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "options", options);
-    frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "record_no", record_no);
-	frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "questions", questions);
-    frappe.model.set_value(intellectual_development_child.doctype, intellectual_development_child.name, "actions", actions);
-       }
-   frm.refresh_field("intellectual_development");
-  
-}
-    });
-        function fetch_intellectual_development(age)
-        {   
-            console.log("entered into function");
-            var data = "";
-            frappe.call({
-            method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.get_intellectual_development_questions`,
-            args: {
-                 "age": age
-                  },
-                async: false,
-                callback: function(r) {
-                if (r.message) 
-                {
-                data = r.message;
-                }    
+    cur_frm.clear_table("spiritual_development"); 
+    var spiritual_development_questions = fetch_spiritual_development(age);
+    console.log("spiritual_development_questions",spiritual_development_questions);
+    for(var j=0;j<spiritual_development_questions.length;j++)
+        {
+        var options = spiritual_development_questions[j].options;
+        var record_no = spiritual_development_questions[j].record_no;
+        var questions = spiritual_development_questions[j].questions;
+        var actions = spiritual_development_questions[j].actions;
+                    
+        var spiritual_development_child = cur_frm.add_child("spiritual_development");
+        frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "options", options);
+        frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "record_no", record_no);
+        frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "questions", questions);
+        frappe.model.set_value(spiritual_development_child.doctype, spiritual_development_child.name, "actions", actions);
+        }
+        frm.refresh_field("spiritual_development");
+                              
+        }
+        });
+function fetch_spiritual_development(age)
+    {   
+        console.log("entered into function");
+        var data = "";
+        frappe.call({
+            method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.get_spiritual_development_questions`,
+                args: {
+                     "age": age
+                      },
+                    async: false,
+                    callback: function(r) {
+                    if (r.message) 
+                        {
+                        data = r.message;
+                        }    
+                         }
+                         });
+                        return  data;
                     }
-                });
-                return  data;
-                }
+                                        
+
+
 
 frappe.ui.form.on('Physical Development', {
 		options : function(frm, cdt, cdn) 
@@ -393,6 +443,44 @@ frappe.ui.form.on('Physical Development', {
 			}
 			});
 		function fetch_actions_intel(options,record_no)
+		{
+			var question = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.select_action`,
+					args: {
+						  
+						  "parent":record_no,
+						  "options": options
+						  },
+						async: false,
+						callback: function(r) {
+						if (r.message) {
+						question = r.message;
+						}    
+						}
+						});
+						return  question;
+						}	
+						
+						
+frappe.ui.form.on('Spiritual Development', {
+		options : function(frm, cdt, cdn) 
+			{
+			var d = locals[cdt][cdn];
+			var options = d.options;
+			var record_no = d.record_no;
+			console.log("options",d.options);
+			console.log("record_no",d.record_no);
+			var questionns_actions = fetch_actions_spiritual(options,record_no);   
+		
+			var actions_need_to_be_taken = questionns_actions[0].actions_need_to_be_taken;	
+			console.log("actions_need_to_be_taken122",actions_need_to_be_taken);
+			
+			d.actions = actions_need_to_be_taken;
+			frm.refresh_field("Spiritual Development");
+			}
+			});
+		function fetch_actions_spiritual(options,record_no)
 		{
 			var question = "";
 			frappe.call({
