@@ -134,7 +134,7 @@
    "label": "Address HTML"
   }
  ],
- "modified": "2022-01-07 12:14:18.549030",
+ "modified": "2022-03-03 17:37:15.370843",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Service Provider Master",
@@ -154,6 +154,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "first_name,middle_name,last_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
