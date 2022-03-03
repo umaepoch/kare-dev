@@ -250,6 +250,7 @@ frappe.ui.form.on('Case Proposal', {
        
    frappe.ui.form.on('Case Proposal', {
    preliminary_fitment_report: function(frm, cdt, cdn) {
+       debugger;
        var d = locals[cdt][cdn];
        var case_proposal = d.name;
        console.log("case_proposal ",case_proposal);
@@ -260,6 +261,7 @@ frappe.ui.form.on('Case Proposal', {
                   ]};
                   });
                   }});
+                  
           frappe.ui.form.on('Case Proposal', {
           before_submit : function(frm, cdt, cdn) {
           var d = locals[cdt][cdn];
