@@ -1,37 +1,21 @@
-// Copyright (c) 2021, Pavithra M R and contributors
+// Copyright (c) 2022, Pavithra M R and contributors
 // For license information, please see license.txt
-frappe.ui.form.on("BankAC", "account_holder_type", function(frm, cdt, cdn) {
-	var d = locals[cdt][cdn];
-	var holder_type = frm.doc.account_holder_type;
-	console.log(holder_type);
+
+frappe.ui.form.on('BankAC', {
+ refresh: function(frm) {
 	
-	if(holder_type === "Caregiver")
+	 }
+});
+
+frappe.ui.form.on('BankAC', {
+	account_holder_type : function(frm, cdt, cdn) 
 	{
-	   console.log(holder_type); 
-	   frm.set_query("account_holder_record", function() {
-	   
-			return {
-					filters: [
-						 ["Caregiver Master","name", "=", "account_holder_record"]
-						 
-					   ]
-					};
-				});
-		
-	}
-	if(holder_type === "Child")
-	{
-	   console.log(holder_type); 
-	   frm.set_query("account_holder_record", function() {
-	   
-			return {
-					filters: [
-						 ["Child Master","name", "=", "account_holder_record"]
-						 
-					   ]
-					};
+	var d = locals[cdt][cdn];
+	
+	frm.set_query("account_holder_type", function() {
+		return {
+				filters: [["DocType","name","IN",["Child Master","Caregiver Master"]]]
+				};
 				});
 	}
 	});
-	
-	

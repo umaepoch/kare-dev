@@ -1,6 +1,6 @@
 {
  "autoname": "naming_series:",
- "creation": "2021-12-17 15:56:54.059125",
+ "creation": "2022-03-08 14:49:34.251460",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -17,7 +17,8 @@
   "account_holder_details_section",
   "account_holder_type",
   "column_break_12",
-  "account_holder_record"
+  "account_holder_record",
+  "section_break_14"
  ],
  "fields": [
   {
@@ -83,24 +84,29 @@
   },
   {
    "fieldname": "account_holder_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Account Holder Type",
-   "options": "Child\nCaregiver",
+   "options": "DocType",
    "reqd": 1
   },
   {
    "fieldname": "column_break_12",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "read_only": 1
   },
   {
    "fieldname": "account_holder_record",
-   "fieldtype": "Link",
+   "fieldtype": "Dynamic Link",
    "label": "Account Holder Record",
-   "options": "Child Master",
+   "options": "account_holder_type",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
   }
  ],
- "modified": "2022-01-07 12:10:29.240052",
+ "modified": "2022-03-08 14:50:12.475657",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "BankAC",
