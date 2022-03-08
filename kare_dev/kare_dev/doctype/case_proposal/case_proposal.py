@@ -38,9 +38,9 @@ def get_coordinator_name(name):
 	return get_coordinator_name
 
 @frappe.whitelist()
-def get_address(name):
-	print("address title",name)	
-	get_address_details=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`name`='"""+name+"""' """, as_dict=1)
+def get_address(address_title):
+	print("address title",address_title)	
+	get_address_details=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+address_title+"""' """, as_dict=1)
 	print("get_address_details",get_address_details)
 	return get_address_details
 

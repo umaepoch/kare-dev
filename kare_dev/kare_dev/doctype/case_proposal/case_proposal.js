@@ -27,51 +27,82 @@ frappe.ui.form.on('Case Proposal', {
                    }
                    });
            }});
-       
-    //CHILD DETAILS
-   frappe.ui.form.on('Case Proposal', {
-   child: function(frm, cdt, cdn) {
-       var d = locals[cdt][cdn];
-       var child = d.child;
-       var full_name;
-       console.log("child",child);
-       if(child)
-           {	
-           var child_no = fetch_child_data(child);
-           full_name = (child_no[0]['first_name'] || '')+ " " + (child_no[0]['middle_name'] || '')+" " + (child_no[0]['last_name'] || '');
-           cur_frm.set_value("name_of_child",full_name);
-           cur_frm.set_value("gender",child_no[0]['gender'] || '');
-           cur_frm.set_value("date_of_birth",child_no[0]['date_of_birth'] || '');
-           frm.set_query("address_of_child", function() {
-           return {
-                   filters: [
-                       ["Address","name", "like","%"+child+"%"]
-                       ]
-                   }
-               });
-           }
-               }
-           });
-           
-   function fetch_child_data(child)    {
-   var child_d = "";
-   frappe.call({
-   method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_child_details`,
-       args: {
-              "child": child
-              },
-              async: false,
-              callback: function(r) {
-               if (r.message) {
-               child_d = r.message;
-                   }    
-                   }
-               });
-               return  child_d;
-               }	
-           
-   //CAREGIVER DETAILS
-   frappe.ui.form.on('Case Proposal', {
+
+ //CHILD DETAILS
+ frappe.ui.form.on('Case Proposal', {
+    child: function(frm, cdt, cdn) {
+        var d = locals[cdt][cdn];
+        var child = d.child;
+        var full_name;
+        console.log("child",child);
+        if(child)
+            {	
+            var child_no = fetch_child_data(child);
+            full_name = (child_no[0]['first_name'] || '')+ " " + (child_no[0]['middle_name'] || '')+" " + (child_no[0]['last_name'] || '');
+            cur_frm.set_value("name_of_child",full_name);
+            cur_frm.set_value("gender",child_no[0]['gender'] || '');
+            cur_frm.set_value("date_of_birth",child_no[0]['date_of_birth'] || '');
+             
+            }
+                }
+            });
+            
+    function fetch_child_data(child)    {
+    var child_d = "";
+    frappe.call({
+    method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_child_details`,
+        args: {
+               "child": child
+               },
+               async: false,
+               callback: function(r) {
+                if (r.message) {
+                child_d = r.message;
+                    }    
+                    }
+                });
+                return  child_d;
+                }
+          
+ //Display Address	by passing child number
+ frappe.ui.form.on('Case Proposal', {
+ child : function(frm, cdt, cdn) {
+     var d = locals[cdt][cdn];
+     var child = d.child;
+     console.log("child number",child);
+     var combined_address;
+     if(child)
+         {
+         var full_address= fetch_child_address(child);
+         
+         for ( var i = 0; i < full_address.length; i++) 
+             {
+             combined_address = (full_address[i]['address_line1']|| '') + "\n" +(full_address[i]['address_line2']|| '') + "\n" +(full_address[i]['city']|| '') + "\n" +(full_address[i]['state']|| '') + " " +(full_address[i]['country']|| '') + "\n" +(full_address[i]['pincode']|| '') + "\n" +(full_address[i]['phone']|| '');
+             cur_frm.set_value("display_address",combined_address);
+             } 
+            }
+                }    
+                });
+ function fetch_child_address(child)
+     {
+     var address = "";
+     frappe.call({
+     method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_address`,
+     args: {
+             "address_title": child
+             },
+             async: false,
+             callback: function(r) {
+             if (r.message) {
+             address = r.message;
+                 }    
+             }
+             });
+             return  address;
+             }
+        
+//CAREGIVER DETAILS
+frappe.ui.form.on('Case Proposal', {
        caregiver: function(frm, cdt, cdn) {
        var d = locals[cdt][cdn];
        var caregiver = d.caregiver;
@@ -178,80 +209,44 @@ frappe.ui.form.on('Case Proposal', {
                    return  saathi_d;
                    }
                
-           //filter sevice provider master record and set name of coordinator
-       frappe.ui.form.on('Case Proposal', {
-       proposed_coordinator: function(frm, cdt, cdn) {
-           var d = locals[cdt][cdn];
-           var full_name;
-           var proposed_coordinator = d.proposed_coordinator;
-           if(proposed_coordinator)
-           {
-           var coordinator_data = fetch_coordinator_data(proposed_coordinator);
-                   console.log("coordinator_data",coordinator_data);
-                   full_name = (coordinator_data[0]['first_name'] || '')+ " " + (coordinator_data[0]['middle_name'] || '')+  (coordinator_data[0]['middle_name'] ? ' ':'') + (coordinator_data[0]['last_name'] || '');
-                   cur_frm.set_value("name_of_coordinator",full_name);
-                   }
+//filter sevice provider master record and set name of coordinator
+frappe.ui.form.on('Case Proposal', {
+proposed_coordinator: function(frm, cdt, cdn) {
+    var d = locals[cdt][cdn];
+    var full_name;
+    var proposed_coordinator = d.proposed_coordinator;
+    if(proposed_coordinator)
+    {
+        var coordinator_data = fetch_coordinator_data(proposed_coordinator);
+        console.log("coordinator_data",coordinator_data);
+        full_name = (coordinator_data[0]['first_name'] || '')+ " " + (coordinator_data[0]['middle_name'] || '')+  (coordinator_data[0]['middle_name'] ? ' ':'') + (coordinator_data[0]['last_name'] || '');
+        cur_frm.set_value("name_of_coordinator",full_name);
+            }
        }
-                   });
+        });
                
-               function fetch_coordinator_data(proposed_coordinator)
-               {
-                 console.log("entered into function");
-                 var coordinator_d = "";
-                 frappe.call({
-                   method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_coordinator_name`,
-                   args: {
-                        "name": proposed_coordinator
-                         },
-                       async: false,
-                       callback: function(r) {
-                       if (r.message) {
-                       coordinator_d = r.message;
+function fetch_coordinator_data(proposed_coordinator)
+    {
+    console.log("entered into function");
+    var coordinator_d = "";
+    frappe.call({
+       method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_coordinator_name`,
+        args: {
+                "name": proposed_coordinator
+                },
+                async: false,
+                callback: function(r) {
+               if (r.message) {
+                    coordinator_d = r.message;
                    }    
                        }
                    });
-                   return  coordinator_d;
-                   }
-       //Display Address	
-       frappe.ui.form.on('Case Proposal', {
-           address_of_child : function(frm, cdt, cdn) {
-           var d = locals[cdt][cdn];
-           var address_of_child = d.address_of_child;
-           var combined_address;
-           if(address_of_child)
-           {
-           var full_address= fetch_child_address(address_of_child);
-           console.log("child_no",full_address);
-           for ( var i = 0; i < full_address.length; i++) 
-               {
-               combined_address = (full_address[i]['address_line1']|| '') + "\n" +(full_address[i]['address_line2']|| '') + "\n" +(full_address[i]['city']|| '') + "\n" +(full_address[i]['state']|| '') + " " +(full_address[i]['country']|| '') + "\n" +(full_address[i]['pincode']|| '') + "\n" +(full_address[i]['phone']|| '');
-               cur_frm.set_value("display_address",combined_address);
-               } 
-           }
-               }    
-               });
-       function fetch_child_address(address_of_child)
-           {
-             var address = "";
-           frappe.call({
-           method: `kare_dev.kare_dev.doctype.case_proposal.case_proposal.get_address`,
-           args: {
-                "name": address_of_child
-                 },
-                   async: false,
-                   callback: function(r) {
-                   if (r.message) {
-                   address = r.message;
-                       }    
-                   }
-                   });
-                   return  address;
-                       }
+                return  coordinator_d;
+                }
        
-   frappe.ui.form.on('Case Proposal', {
-   preliminary_fitment_report: function(frm, cdt, cdn) {
-       debugger;
-       var d = locals[cdt][cdn];
+frappe.ui.form.on('Case Proposal', {
+preliminary_fitment_report: function(frm, cdt, cdn) {
+      var d = locals[cdt][cdn];
        var case_proposal = d.name;
        console.log("case_proposal ",case_proposal);
        frm.set_query("preliminary_fitment_report", function() {

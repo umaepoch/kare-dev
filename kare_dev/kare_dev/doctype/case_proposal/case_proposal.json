@@ -10,8 +10,6 @@
   "child_details_section",
   "child",
   "name_of_child",
-  "address_of_child",
-  "column_break_7",
   "gender",
   "date_of_birth",
   "display_address",
@@ -76,12 +74,6 @@
    "fieldname": "name_of_child",
    "fieldtype": "Data",
    "label": "Name Of Child"
-  },
-  {
-   "fieldname": "address_of_child",
-   "fieldtype": "Link",
-   "label": "Address Of Child",
-   "options": "Address"
   },
   {
    "fieldname": "gender",
@@ -246,14 +238,10 @@
    "fieldname": "display_address",
    "fieldtype": "Small Text",
    "label": "Display Address"
-  },
-  {
-   "fieldname": "column_break_7",
-   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
- "modified": "2022-03-02 13:51:46.998160",
+ "modified": "2022-03-08 15:40:13.099337",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Proposal",
