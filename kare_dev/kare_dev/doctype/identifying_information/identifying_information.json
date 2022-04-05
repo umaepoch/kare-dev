@@ -1,0 +1,69 @@
+{
+ "creation": "2022-01-25 14:50:04.595233",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "gender",
+  "age",
+  "relationship_with_the_child",
+  "column_break_5",
+  "income_earned_per_month",
+  "occupation",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOthers"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "relationship_with_the_child",
+   "fieldtype": "Data",
+   "label": "Relationship With The Child"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "income_earned_per_month",
+   "fieldtype": "Data",
+   "label": "Income Earned Per Month"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-01-25 15:05:43.909690",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Identifying Information",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
