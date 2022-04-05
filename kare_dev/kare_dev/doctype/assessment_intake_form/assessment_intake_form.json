@@ -14,7 +14,6 @@
   "date_of_birth",
   "column_break_7",
   "gender",
-  "address_of_child",
   "display_address",
   "caregiver_details",
   "caregiver",
@@ -216,11 +215,6 @@
    "fieldname": "motherguardiancaregivers_name",
    "fieldtype": "Data",
    "label": "Mother/Guardian/Caregiver's Name"
-  },
-  {
-   "fieldname": "address_of_child",
-   "fieldtype": "Data",
-   "label": "Address Of Child"
   },
   {
    "fieldname": "column_break_7",
@@ -550,7 +544,7 @@
    "fieldtype": "Section Break"
   }
  ],
- "modified": "2022-01-25 18:02:01.587873",
+ "modified": "2022-02-07 15:39:54.869743",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Assessment Intake Form",
