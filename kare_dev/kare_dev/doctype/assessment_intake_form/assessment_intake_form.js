@@ -4,7 +4,7 @@ frappe.ui.form.on('Assessment Intake Form', {
                 var d = locals[cdt][cdn];
                 var preliminary_fitment_report = d.preliminary_fitment_report;
                 console.log("preliminary_fitment_report",preliminary_fitment_report);
-            if(preliminary_fitment_report)
+                if(preliminary_fitment_report)
                 {	
                 var details = fetch_preliminary_fitment_child_data(preliminary_fitment_report);
                 console.log("details",details);
@@ -82,4 +82,4 @@ frappe.ui.form.on('Assessment Intake Form', {
                     });
                     return  case_d;
                     }	
-                
+        
