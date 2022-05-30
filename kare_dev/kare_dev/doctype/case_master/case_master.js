@@ -55,3 +55,21 @@ frappe.ui.form.on('Case Master', {
 		});
 		return  case_d;
 	}
+
+	frappe.ui.form.on('Case Master', {
+		mode_of_remittance:function(frm,cdt,cdn)
+		{
+			var d = locals[cdt][cdn];
+		 //  var check_number = d.check_number;
+			if(d.mode_of_remittance == "Cheque")
+			{
+			frm.toggle_display("check_number", true);
+			}
+			else if(d.mode_of_remittance == "Online Transfer")
+			{
+			frm.toggle_display("check_number", false);
+			cur_frm.refresh();
+			}
+		}
+	});
+	
