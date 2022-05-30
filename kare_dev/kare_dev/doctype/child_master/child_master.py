@@ -34,3 +34,9 @@ def create_image_url(doc):
 		return {"SC": False}
 	except Exception as ex:
 		return {"EX": ex}
+
+@frappe.whitelist()
+def get_caregiver_Add(name_of_caregiver):
+	get_caregiver_address=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+name_of_caregiver+"""' """, as_dict=1)
+	print("get_caregiver_address",get_caregiver_address)
+	return get_caregiver_address

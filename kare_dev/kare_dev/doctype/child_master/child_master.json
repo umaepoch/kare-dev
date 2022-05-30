@@ -120,13 +120,12 @@
   },
   {
    "fieldname": "motherguardiancaregivers_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
+   "fieldtype": "Link",
    "label": "Mother/Guardian/Caregiver's Name",
-   "reqd": 1
+   "options": "Caregiver Master"
   }
  ],
- "modified": "2022-03-02 13:37:38.930871",
+ "modified": "2022-05-27 16:20:32.140895",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
