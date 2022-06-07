@@ -36,7 +36,19 @@ def create_image_url(doc):
 		return {"EX": ex}
 
 @frappe.whitelist()
-def get_caregiver_Add(name_of_caregiver):
-	get_caregiver_address=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+name_of_caregiver+"""' """, as_dict=1)
+def get_caregiver_Add(name_of_child):
+	get_caregiver_address=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+name_of_child+"""' """, as_dict=1)
 	print("get_caregiver_address",get_caregiver_address)
 	return get_caregiver_address
+
+@frappe.whitelist()
+def set_caregiver_name(name,child_name,child_record):
+	print("name",name)
+	print("name",child_name)
+	print("child_record",child_record)
+	#get_caregiver_name=frappe.db.sql("""select fetch_child_address,caregiver_address from `tabCaregiver Master` where fetch_child_address='"""+name+"""' """, as_dict=1)
+	#print("get_caregiver_name",get_caregiver_name)
+	frappe.client.set_value('Child Master',child_record,'motherguardiancaregivers_name',name)
+	frappe.db.commit()
+	#return get_caregiver_name
+

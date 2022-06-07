@@ -81,7 +81,6 @@ frappe.ui.form.on("Images", "form_render", function(frm, cdt, cdn){
     var is_viewable = frappe.utils.is_image_file(doc.attach);
     console.log(is_viewable)
 
-    // frm.toggle_display("upload_section", is_viewable);
     frm.toggle_display("image_preview", is_viewable);
 
     if(is_viewable){
@@ -109,38 +108,3 @@ frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
     frm.reload_doc()
   }
 })
-
-frappe.ui.form.on('Child Master', {
-  motherguardiancaregivers_name: function(frm, cdt, cdn) 
-    {
-    var doc = locals[cdt][cdn];
-    var name_of_caregiver = doc.motherguardiancaregivers_name;
-    var combined_address;
-    if(name_of_caregiver)
-           {
-           var full_address= fetch_caregiver_address(name_of_caregiver);
-           
-           for ( var i = 0; i < full_address.length; i++) 
-               {
-               combined_address = (full_address[i]['address_line1']|| '') + "\n" +(full_address[i]['address_line2']|| '') + "\n" +(full_address[i]['city']|| '') + "\n" +(full_address[i]['state']|| '') + " " +(full_address[i]['country']|| '') + "\n" +(full_address[i]['pincode']|| '') + "\n" +(full_address[i]['phone']|| '');
-               cur_frm.set_value("caregiver_address",combined_address);
-               } 
-              }
-                  }    
-                  });
-   
-  function fetch_caregiver_address(name_of_caregiver) {
-  var c_name = " ";
-  frappe.call({
-  method: 'kare_dev.kare_dev.doctype.child_master.child_master.get_caregiver_Add',
-  args: {
-  "name_of_caregiver":name_of_caregiver,
-  },
-  async: false,
-  callback: function(r)
-  {
-  c_name = r.message;
-  }
-  });
-  return c_name;
-  }
