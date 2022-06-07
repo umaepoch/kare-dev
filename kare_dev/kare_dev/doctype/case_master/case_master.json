@@ -276,8 +276,9 @@
   },
   {
    "fieldname": "bank_account",
-   "fieldtype": "Data",
-   "label": "Bank Account"
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "BankAC"
   },
   {
    "fieldname": "amount",
@@ -315,7 +316,7 @@
    "label": "Average Days Between Visits"
   }
  ],
- "modified": "2022-05-30 11:27:36.852467",
+ "modified": "2022-06-06 12:53:43.156330",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Master",

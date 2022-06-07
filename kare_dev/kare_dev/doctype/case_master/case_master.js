@@ -48,7 +48,7 @@ frappe.ui.form.on('Case Master', {
 			callback: function(r) {
 			if (r.message) {
 			case_d = r.message;
-			console.log("case_d",case_d);
+			console.log("case_data",case_d);
 			console.log("readings-----------" + JSON.stringify(r.message));
 				}    
 			}
@@ -56,11 +56,11 @@ frappe.ui.form.on('Case Master', {
 		return  case_d;
 	}
 
+	/*
 	frappe.ui.form.on('Case Master', {
 		mode_of_remittance:function(frm,cdt,cdn)
 		{
 			var d = locals[cdt][cdn];
-		 //  var check_number = d.check_number;
 			if(d.mode_of_remittance == "Cheque")
 			{
 			frm.toggle_display("check_number", true);
@@ -72,4 +72,4 @@ frappe.ui.form.on('Case Master', {
 			}
 		}
 	});
-	
+	*/
