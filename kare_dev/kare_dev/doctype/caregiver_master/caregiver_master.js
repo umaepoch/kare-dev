@@ -110,3 +110,105 @@ frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
     frm.reload_doc()
   }
 })
+
+frappe.ui.form.on('Caregiver Master', {
+  child_name: function(frm, cdt, cdn) 
+      {
+      var d = locals[cdt][cdn];
+      var name_of_child = d.child_name;
+      if(name_of_child)
+      {
+    var address = fetch_caregiver_address(name_of_child);
+    console.log("address",address[0].caregiver_address);
+   cur_frm.set_value("caregiver_address",address[0].caregiver_address);
+    }
+  }    
+  });
+     
+    function fetch_caregiver_address(name_of_child) {
+    var c_name = " ";
+    frappe.call({
+    method: 'kare_dev.kare_dev.doctype.caregiver_master.caregiver_master.get_child_address',
+   args: {
+          name_of_child: name_of_child
+      },
+      async: false,
+      callback: function(r) {
+        if (r.message) {
+          console.log(typeof r.message)
+          c_name = r.message;
+        }
+      }
+    })
+    return c_name
+  }
+  
+  frappe.ui.form.on('Caregiver Master', {
+  after_save: function(frm, cdt, cdn) 
+  {
+      
+      var d = locals[cdt][cdn];
+      var name = d.name;
+      var child_name = d.child_name;
+      if(child_name)
+      {
+      var child_record = fetch_child_record_name(child_name);
+      console.log("child_record",child_record.name);
+      var child_record1 = child_record.name;
+      fetch_caregiver_name(name,child_name,child_record1);
+     
+      }
+      cur_frm.refresh();
+  }  
+   
+  });
+     
+  function fetch_caregiver_name(name,child_name,child_record1) {
+  var c_name = " ";
+  frappe.call({
+  method: 'kare_dev.kare_dev.doctype.child_master.child_master.set_caregiver_name',
+  args: {
+          name: name,
+          child_name:child_name,
+          child_record:child_record1
+      },
+      async: false,
+      callback: function(r) {
+        if (r.message) {
+          console.log(typeof r.message)
+          c_name = r.message;
+        }
+      }
+    })
+    return c_name
+  }
+     
+  function fetch_child_record_name(child_name) {
+  
+      var is_same_name = "";
+      frappe.call({
+          method: 'frappe.client.get_value',
+          args: {
+              'doctype': 'Child Master',
+              'fieldname': 'name',
+  
+              'filters': {
+                  "name" : child_name,
+                              }
+          },
+          async: false,
+          callback: function(r) {
+              if (r.message) {
+                  // console.log(r.qty);
+                   is_same_name = r.message;
+                 
+                  console.log(is_same_name);
+                  console.log("readings-----------" + JSON.stringify(r.message));
+  
+              }
+          }
+      });
+      return  is_same_name;
+  }
+     
+  
