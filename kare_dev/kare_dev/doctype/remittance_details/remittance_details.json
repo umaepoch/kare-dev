@@ -1,0 +1,57 @@
+{
+ "creation": "2022-06-06 20:58:48.985150",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date_of_remittance",
+  "bank_acc_no",
+  "remitted_to",
+  "amount_remitted",
+  "mode_of_remittance",
+  "check_or_neft_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "date_of_remittance",
+   "fieldtype": "Date",
+   "label": "Date Of Remittance"
+  },
+  {
+   "fieldname": "bank_acc_no",
+   "fieldtype": "Data",
+   "label": "Bank Acc No"
+  },
+  {
+   "fieldname": "remitted_to",
+   "fieldtype": "Data",
+   "label": "Remitted To"
+  },
+  {
+   "fieldname": "amount_remitted",
+   "fieldtype": "Data",
+   "label": "Amount Remitted"
+  },
+  {
+   "fieldname": "mode_of_remittance",
+   "fieldtype": "Data",
+   "label": "Mode Of Remittance"
+  },
+  {
+   "fieldname": "check_or_neft_details",
+   "fieldtype": "Data",
+   "label": "Check Or NEFT Details"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-06-06 20:59:24.901453",
+ "modified_by": "Administrator",
+ "module": "kare_dev",
+ "name": "Remittance Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
