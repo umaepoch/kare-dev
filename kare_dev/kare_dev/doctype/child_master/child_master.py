@@ -46,9 +46,9 @@ def set_caregiver_name(name,child_name,child_record):
 	print("name",name)
 	print("name",child_name)
 	print("child_record",child_record)
-	#get_caregiver_name=frappe.db.sql("""select fetch_child_address,caregiver_address from `tabCaregiver Master` where fetch_child_address='"""+name+"""' """, as_dict=1)
-	#print("get_caregiver_name",get_caregiver_name)
-	frappe.client.set_value('Child Master',child_record,'motherguardiancaregivers_name',name)
+	doc = frappe.client.set_value('Child Master',child_record,'motherguardiancaregivers_name',name)
 	frappe.db.commit()
-	#return get_caregiver_name
+	doc.save()
+	doc.reload()
+
 
