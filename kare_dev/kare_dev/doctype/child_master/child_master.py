@@ -46,9 +46,9 @@ def set_caregiver_name(name,child_name,child_record):
 	print("name",name)
 	print("name",child_name)
 	print("child_record",child_record)
-	doc = frappe.client.set_value('Child Master',child_record,'motherguardiancaregivers_name',name)
+	frappe.clear_cache()
+	frappe.client.set_value("Child Master",child_record,"motherguardiancaregivers_name",name)
 	frappe.db.commit()
-	doc.save()
-	doc.reload()
+	
 
 
