@@ -142,11 +142,10 @@ frappe.ui.form.on('Caregiver Master', {
     })
     return c_name
   }
-  
+  /*
   frappe.ui.form.on('Caregiver Master', {
   after_save: function(frm, cdt, cdn) 
-  {
-      
+  {      
       var d = locals[cdt][cdn];
       var name = d.name;
       var child_name = d.child_name;
@@ -210,5 +209,4 @@ frappe.ui.form.on('Caregiver Master', {
       });
       return  is_same_name;
   }
-     
-  
+*/
