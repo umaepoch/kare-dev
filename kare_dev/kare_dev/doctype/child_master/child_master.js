@@ -108,3 +108,36 @@ frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
     frm.reload_doc()
   }
 })
+
+frappe.ui.form.on('Child Master', {
+  fetch_caregiver_name: function(frm, cdt, cdn) 
+  {      
+    var d = locals[cdt][cdn];
+    var name = d.name;
+    var care = fetch_caregiver_name(name);
+    console.log("care",care[0].name);
+    if(care[0].name)
+    {
+    cur_frm.set_value("motherguardiancaregivers_name",care[0].name);
+    }
+    }  
+  });
+     
+function fetch_caregiver_name(name) {
+    var c_name = " ";
+    frappe.call({
+    method: 'kare_dev.kare_dev.doctype.child_master.child_master.get_care_number',
+   args: {
+         name : name
+      },
+      async: false,
+      callback: function(r) {
+        if (r.message) {
+          console.log(typeof r.message)
+          c_name = r.message;
+        }
+      }
+    })
+    return c_name
+  }
+  

@@ -41,14 +41,18 @@ def get_caregiver_Add(name_of_child):
 	print("get_caregiver_address",get_caregiver_address)
 	return get_caregiver_address
 
-@frappe.whitelist()
-def set_caregiver_name(name,child_name,child_record):
-	print("name",name)
-	print("name",child_name)
-	print("child_record",child_record)
-	frappe.clear_cache()
-	frappe.client.set_value("Child Master",child_record,"motherguardiancaregivers_name",name)
-	frappe.db.commit()
+#@frappe.whitelist()
+#def set_caregiver_name(name,child_name,child_record):
+#	print("name",name)
+#	print("name",child_name)
+#	print("child_record",child_record)
+#	frappe.clear_cache()
+#	frappe.client.set_value("Child Master",child_record,"motherguardiancaregivers_name",name)
+#	frappe.db.commit()
 	
-
+@frappe.whitelist()
+def get_care_number(name):
+	get_care_num=frappe.db.sql("""select ca.name,ca.child_name from `tabCaregiver Master` as ca inner join `tabChild Master` as ch where ch.name=ca.child_name and ch.name='"""+name+"""' """, as_dict=1)
+	print("get_care_num",get_care_num)
+	return get_care_num
 
