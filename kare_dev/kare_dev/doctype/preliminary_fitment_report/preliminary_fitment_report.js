@@ -42,7 +42,7 @@ frappe.ui.form.on('Preliminary Fitment Report', {
                 cur_frm.set_value("child_name",full_name);
                 cur_frm.set_value("date_of_birth",case_pro_details[0]['date_of_birth'] || '');
                 cur_frm.set_value("gender",case_pro_details[0]['gender'] || '');
-                cur_frm.set_value("mothers_name",case_pro_details[0]['motherguardiancaregivers_name'] || '');
+                //cur_frm.set_value("mothers_name",case_pro_details[0]['motherguardiancaregivers_name'] || '');
                 cur_frm.set_value("display_address",case_pro_details[0]['display_address'] || '');
                 
                 cur_frm.set_value("caregiver",case_pro_details[0]['caregiver'] || '');
@@ -113,6 +113,41 @@ frappe.ui.form.on('Preliminary Fitment Report', {
             }
             }
         });
+
+        frappe.ui.form.on('Preliminary Fitment Report', {
+            total_income_of_family_per_month: function(frm, cdt, cdn) 
+                {
+                    var d = locals[cdt][cdn];
+                    var income = d.total_income_of_family_per_month; 
+                    var no_of_family = d.number_of_members_in_family;
+                    console.log("income",income);
+                    console.log("no_of_family",no_of_family);
+                    var month_income =  income/no_of_family;
+                    if(!isNaN(month_income))
+                    {
+                    cur_frm.set_value("income_per_month_per_head",month_income);
+                    }
+                     else
+                    {
+                     cur_frm.set_value("income_per_month_per_head"," "); 
+                    }
+                   
+                   
+                    if(month_income <= 2000)
+                    {
+                      cur_frm.set_value("income_eligibility","Yes");
+                    }
+                    else if(month_income >= 2000)
+                    {
+                      cur_frm.set_value("income_eligibility","No"); 
+                    }
+                    else
+                    {
+                     cur_frm.set_value("income_eligibility"," "); 
+                    }
+                    }
+                });
+
     frappe.ui.form.on('Preliminary Fitment Report', {
     case_proposal: function(frm, cdt, cdn) 
         {

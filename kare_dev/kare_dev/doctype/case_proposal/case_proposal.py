@@ -12,7 +12,7 @@ class CaseProposal(Document):
 @frappe.whitelist()
 def get_child_details(child):
 	print("child",child)	
-	get_child_data=frappe.db.sql("""select `tabChild Master`.`first_name`,`tabChild Master`.`middle_name`,`tabChild Master`.`last_name`,`tabChild Master`.`gender`,`tabChild Master`.`date_of_birth`,`tabChild Master`.`address` from `tabChild Master` where `tabChild Master`.`name`='"""+child+"""' """, as_dict=1)
+	get_child_data=frappe.db.sql("""select `tabChild Master`.`first_name`,`tabChild Master`.`middle_name`,`tabChild Master`.`last_name`,`tabChild Master`.`gender`,`tabChild Master`.`date_of_birth`,`tabChild Master`.`caregiver_address` from `tabChild Master` where `tabChild Master`.`name`='"""+child+"""' """, as_dict=1)
 	print("get_child_details",get_child_data)
 	return get_child_data
 
@@ -37,12 +37,12 @@ def get_coordinator_name(name):
 	print("coordinator",get_coordinator_name)
 	return get_coordinator_name
 
-@frappe.whitelist()
-def get_address(address_title):
-	print("address title",address_title)	
-	get_address_details=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+address_title+"""' """, as_dict=1)
-	print("get_address_details",get_address_details)
-	return get_address_details
+#@frappe.whitelist()
+#def get_address(address_title):
+#	print("address title",address_title)	
+#	get_address_details=frappe.db.sql("""select `tabAddress`.`address_title`,`tabAddress`.`address_line1`,`tabAddress`.`address_line2`,`tabAddress`.`city`,`tabAddress`.`state`,`tabAddress`.`country`, `tabAddress`.`pincode`, `tabAddress`.`phone` from `tabAddress` where `tabAddress`.`address_title`='"""+address_title+"""' """, as_dict=1)
+#	print("get_address_details",get_address_details)
+#	return get_address_details
 
 @frappe.whitelist()
 def get_docstatus(name):

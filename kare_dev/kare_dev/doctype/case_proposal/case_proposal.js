@@ -42,7 +42,7 @@ frappe.ui.form.on('Case Proposal', {
             cur_frm.set_value("name_of_child",full_name);
             cur_frm.set_value("gender",child_no[0]['gender'] || '');
             cur_frm.set_value("date_of_birth",child_no[0]['date_of_birth'] || '');
-             
+            cur_frm.set_value("display_address",child_no[0]['caregiver_address'] || '');
             }
                 }
             });
@@ -63,7 +63,7 @@ frappe.ui.form.on('Case Proposal', {
                 });
                 return  child_d;
                 }
-          
+ /*         
  //Display Address	by passing child number
  frappe.ui.form.on('Case Proposal', {
  child : function(frm, cdt, cdn) {
@@ -100,7 +100,7 @@ frappe.ui.form.on('Case Proposal', {
              });
              return  address;
              }
-        
+*/        
 //CAREGIVER DETAILS
 frappe.ui.form.on('Case Proposal', {
        caregiver: function(frm, cdt, cdn) {

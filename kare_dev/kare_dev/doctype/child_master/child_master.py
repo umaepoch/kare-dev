@@ -52,7 +52,8 @@ def get_caregiver_Add(name_of_child):
 	
 @frappe.whitelist()
 def get_care_number(name):
-	get_care_num=frappe.db.sql("""select ca.name,ca.child_name from `tabCaregiver Master` as ca inner join `tabChild Master` as ch where ch.name=ca.child_name and ch.name='"""+name+"""' """, as_dict=1)
+	#get_care_num=frappe.db.sql("""select ca.name,ca.child_name from `tabCaregiver Master` as ca inner join `tabChild Master` as ch where ch.name=ca.child_name and ch.name='"""+name+"""' """, as_dict=1)
+	get_care_num=frappe.db.sql("""select ca.name,ca.child_name,CONCAT(ca.first_name, ' ', ca.middle_name, ' ', ca.last_name) AS car_name from `tabCaregiver Master` as ca inner join `tabChild Master` as ch where ch.name=ca.child_name and ch.name='"""+name+"""' """, as_dict=1)
 	print("get_care_num",get_care_num)
 	return get_care_num
 
