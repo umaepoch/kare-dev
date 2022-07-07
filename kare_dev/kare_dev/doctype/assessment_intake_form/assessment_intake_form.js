@@ -10,7 +10,7 @@ frappe.ui.form.on('Assessment Intake Form', {
                 console.log("details",details);
                 cur_frm.set_value("child",details[0]['child'] || '');
                 cur_frm.set_value("child_name",details[0]['child_name'] || '');
-                cur_frm.set_value("motherguardiancaregivers_name",details[0]['mothers_name'] || '');
+                //cur_frm.set_value("motherguardiancaregivers_name",details[0]['mothers_name'] || '');
                 cur_frm.set_value("date_of_birth",details[0]['date_of_birth'] || '');
                 cur_frm.set_value("gender",details[0]['gender'] || '');
                 cur_frm.set_value("display_address",details[0]['display_address'] || '');

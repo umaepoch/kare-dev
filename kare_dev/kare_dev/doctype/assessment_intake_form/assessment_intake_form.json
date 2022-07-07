@@ -9,10 +9,9 @@
   "preliminary_fitment_report",
   "child_details_section",
   "child",
-  "child_name",
-  "motherguardiancaregivers_name",
   "date_of_birth",
   "column_break_7",
+  "child_name",
   "gender",
   "display_address",
   "caregiver_details",
@@ -23,8 +22,6 @@
   "caregiver_name",
   "education",
   "type_of_employment",
-  "relationship_details",
-  "relationship_between_child_and_caregiver",
   "saathi_details",
   "name_of_saathi",
   "coordinator_details",
@@ -129,7 +126,8 @@
   {
    "fieldname": "display_address",
    "fieldtype": "Small Text",
-   "label": "Display Address"
+   "label": "Display Address",
+   "read_only": 1
   },
   {
    "fieldname": "caregiver_details",
@@ -169,12 +167,6 @@
    "label": "Type of Employment"
   },
   {
-   "fieldname": "relationship_details",
-   "fieldtype": "Section Break",
-   "label": "Relationship Details",
-   "options": "fa fa-map-marker"
-  },
-  {
    "fieldname": "saathi_details",
    "fieldtype": "Section Break",
    "label": "Saathi Details",
@@ -212,11 +204,6 @@
    "label": "Child Name"
   },
   {
-   "fieldname": "motherguardiancaregivers_name",
-   "fieldtype": "Data",
-   "label": "Mother/Guardian/Caregiver's Name"
-  },
-  {
    "fieldname": "column_break_7",
    "fieldtype": "Column Break"
   },
@@ -224,12 +211,6 @@
    "fieldname": "caregiver_name",
    "fieldtype": "Data",
    "label": "Caregiver Name"
-  },
-  {
-   "fieldname": "relationship_between_child_and_caregiver",
-   "fieldtype": "Select",
-   "label": "Relationship Between Child And Caregiver",
-   "options": "\nParent\nUncle\nAunt\nGrand Parent\nBrother\nCousin\nFamily Friend\nGuardian"
   },
   {
    "fieldname": "column_break_25",
@@ -544,7 +525,7 @@
    "fieldtype": "Section Break"
   }
  ],
- "modified": "2022-02-07 15:39:54.869743",
+ "modified": "2022-07-07 12:38:20.700583",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Assessment Intake Form",
