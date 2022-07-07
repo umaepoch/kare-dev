@@ -57,3 +57,9 @@ def select_action(parent,options):
 	get_action_details=frappe.db.sql("""select `tabActions`.`options`,`tabActions`.`actions_need_to_be_taken`,`tabActions`.`parent` from `tabActions` where parent='"""+parent+"""' and options='"""+options+"""' """, as_dict=1)
 	print("actions",get_action_details)
 	return get_action_details
+
+@frappe.whitelist()
+def fetch_ssg_code(name):
+	get_ssg_code=frappe.db.sql("""select name,first_name,ssg_code from `tabChild Master` where name='"""+name+"""' """, as_dict=1)
+	print("get_ssg_code",get_ssg_code)
+	return get_ssg_code

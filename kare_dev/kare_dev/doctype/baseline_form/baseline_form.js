@@ -464,3 +464,36 @@ frappe.ui.form.on('Spiritual Development', {
 						});
 						return  question;
 						}	
+                        
+frappe.ui.form.on('Baseline Form', {
+child : function(frm, cdt, cdn) {
+var d = locals[cdt][cdn];
+var child = d.child;
+console.log("child data",child)
+if(child)
+    {
+    var ssg= fetch_ssg_code(child);
+    console.log("ssg",ssg);
+    cur_frm.set_value("ssg_code",ssg[0]['ssg_code'] || '');
+        }
+        }
+         });
+    function fetch_ssg_code(child)
+       {
+        console.log("entered into function");
+         var child_ssg = "";
+        frappe.call({
+        method: `kare_dev.kare_dev.doctype.baseline_form.baseline_form.fetch_ssg_code`,
+          args: {
+       name:child
+         },
+        async: false,
+         callback: function(r) {
+         if (r.message) {
+        child_ssg = r.message;
+         }    
+          }
+          });
+         return child_ssg;
+          }
+                        
