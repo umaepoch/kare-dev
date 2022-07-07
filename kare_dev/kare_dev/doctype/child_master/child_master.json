@@ -7,6 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "column_break_2",
+  "ssg_code",
   "child_details_section",
   "first_name",
   "column_break_4",
@@ -129,9 +131,18 @@
    "fieldtype": "Link",
    "label": "Mother/Guardian/Caregiver's Number",
    "options": "Caregiver Master"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ssg_code",
+   "fieldtype": "Data",
+   "label": "SSG Code"
   }
  ],
- "modified": "2022-07-06 12:32:09.271974",
+ "modified": "2022-07-07 13:19:43.955953",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",
