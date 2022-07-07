@@ -13,8 +13,8 @@
   "child_details_section",
   "child",
   "gender",
-  "name_of_child",
   "column_break_9",
+  "name_of_child",
   "date_of_birth",
   "address_of_child",
   "images",
@@ -117,7 +117,8 @@
   {
    "fieldname": "address_of_child",
    "fieldtype": "Small Text",
-   "label": "Address Of Child"
+   "label": "Address Of Child",
+   "read_only": 1
   },
   {
    "fieldname": "images",
@@ -316,7 +317,7 @@
    "label": "Average Days Between Visits"
   }
  ],
- "modified": "2022-06-06 12:53:43.156330",
+ "modified": "2022-07-07 11:40:30.453499",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Case Master",
