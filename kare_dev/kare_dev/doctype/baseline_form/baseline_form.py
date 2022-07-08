@@ -5,6 +5,8 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
+from datetime import datetime
+from datetime import date
 
 class BaselineForm(Document):
 	pass
@@ -63,3 +65,45 @@ def fetch_ssg_code(name):
 	get_ssg_code=frappe.db.sql("""select name,first_name,ssg_code from `tabChild Master` where name='"""+name+"""' """, as_dict=1)
 	print("get_ssg_code",get_ssg_code)
 	return get_ssg_code
+
+#dob
+@frappe.whitelist()
+def fetch_dob(name):
+	get_dob=frappe.db.sql("""select name,first_name,date_of_birth from `tabChild Master` where name='"""+name+"""' """, as_dict=1)
+	print("get_dob",get_dob)
+	return get_dob
+
+@frappe.whitelist()
+def calculateAge(date_of_birth):
+	print("getting date of birth",date_of_birth)
+	y = date.today().year
+	m = date.today().month
+	d = date.today().day
+	dob_convrt = datetime.strptime(date_of_birth, '%Y-%m-%d')
+	dob = dob_convrt.date()
+	print("dt",dob)
+	print (dob.year, dob.month, dob.day)
+
+	if dob.day > d and dob.month >= m:
+		dd = (d + 30) - dob.day
+		mm = ((m - 1) + 12) - dob.month
+		yy = (y - 1) - dob.year
+		print("age 1",str(yy))
+		return str(yy)
+	elif dob.day > d and dob.month < m:
+		dd = (d + 30) - dob.day
+		mm = m - dob.month
+		yy = y - dob.year
+		print("age 2",str(yy),str(mm),str(dd))
+		return str(yy)
+	elif dob.day < d and dob.month > m:
+		dd = d - dob.day
+		mm = (m + 12) - dob.month
+		yy = (y - 1) - dob.year
+		print("age 3",str(yy),str(mm),str(dd))
+		return str(yy)
+	else:
+		dd = d - dob.day
+		mm = m - dob.month
+		yy = y - dob.year
+		return str(yy)
