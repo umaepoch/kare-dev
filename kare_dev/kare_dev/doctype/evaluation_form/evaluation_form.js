@@ -499,3 +499,112 @@ frappe.ui.form.on('Spiritual Development', {
 						});
 						return  question;
 						}	
+
+                        frappe.ui.form.on('Evaluation Form', {
+                            child : function(frm, cdt, cdn) {
+                            var d = locals[cdt][cdn];
+                            var child = d.child;
+                            //console.log("child data",child)
+                            if(child)
+                                {
+                                var ssg= fetch_ssg_code(child);
+                                //console.log("ssg",ssg);
+                                cur_frm.set_value("ssg_code",ssg[0]['ssg_code']);
+                                    }
+                                    else
+                                    {
+                                     cur_frm.set_value("ssg_code"," ");
+                                    }
+                                    }
+                                     });
+                                function fetch_ssg_code(child)
+                                   {
+                                
+                                     var child_ssg = "";
+                                    frappe.call({
+                                    method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.fetch_ssg_code`,
+                                      args: {
+                                   name:child
+                                     },
+                                    async: false,
+                                     callback: function(r) {
+                                     if (r.message) {
+                                    child_ssg = r.message;
+                                     }    
+                                      }
+                                      });
+                                     return child_ssg;
+                                    }
+                            
+                            
+                            //dob calculation
+                            frappe.ui.form.on('Evaluation Form', {
+                                child : function(frm, cdt, cdn) {
+                                var d = locals[cdt][cdn];
+                                var child = d.child;
+                                console.log("child data",child)
+                                if(child)
+                                    {
+                                    var dob= fetch_dob(child);
+                                    console.log("dob",dob);
+                                    var age= fetch_age(dob[0]['date_of_birth']);
+                                    console.log("age",age);
+                                  
+                                   if((age >= 5) && (age <= 9))
+                                   {
+                                    cur_frm.set_value("age","5 to 9");
+                                    }
+                                    else if((age >= 10) && (age <= 12))
+                                   {
+                                    cur_frm.set_value("age","10 to 12");
+                                   }
+                                   else if((age >= 13) && (age <= 15))
+                                   {
+                                    cur_frm.set_value("age","13 to 15");
+                                   }
+                                  else if((age >= 16) && (age <= 18))
+                                   {
+                                    cur_frm.set_value("age","16 to 18");
+                                   }
+                                   else
+                                   {
+                                    cur_frm.set_value("age"," "); 
+                                   }
+                                    }
+                                    }
+                                    });
+                                function fetch_dob(child)
+                                {
+                                var child_ssg = "";
+                                frappe.call({
+                                method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.fetch_dob`,
+                                args: {
+                                name:child
+                                    },
+                                async: false,
+                                callback: function(r) {
+                                if (r.message) {
+                                child_ssg = r.message;
+                                        }    
+                                        }
+                                    });
+                                    return child_ssg;
+                                    }
+                                   
+                                function fetch_age(dob)
+                                {
+                                var age = "";
+                                frappe.call({
+                                method: `kare_dev.kare_dev.doctype.evaluation_form.evaluation_form.calculateAge`,
+                                args: {
+                                date_of_birth:dob
+                                    },
+                                async: false,
+                                callback: function(r) {
+                                if (r.message) {
+                                age = r.message;
+                                        }    
+                                        }
+                                    });
+                                    return age;
+                                    }
