@@ -4,14 +4,13 @@
 frappe.ui.form.on('BankAC', {
  refresh: function(frm) {
 	
-	 }
+		}
 });
 
 frappe.ui.form.on('BankAC', {
-	account_holder_type : function(frm, cdt, cdn) 
+	refresh : function(frm, cdt, cdn) 
 	{
 	var d = locals[cdt][cdn];
-	
 	frm.set_query("account_holder_type", function() {
 		return {
 				filters: [["DocType","name","IN",["Child Master","Caregiver Master"]]]
