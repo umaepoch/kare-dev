@@ -112,15 +112,19 @@ frappe.ui.form.on("Images", "attach", function(frm, cdt, cdn) {
 frappe.ui.form.on('Child Master', {
   fetch_caregiver_name: function(frm, cdt, cdn) 
   {      
+    debugger;
     var d = locals[cdt][cdn];
     var name = d.name;
     var care = fetch_caregiver_name(name);
-    console.log("care",care);
-    console.log("care",care[0].car_name);
+    console.log("care number",care);
+    console.log("care name",care[0].car_name);
+
     if(care[0].name)
     {
+
       cur_frm.set_value("motherguardiancaregivers_number",care[0].name);
-    cur_frm.set_value("motherguardiancaregivers_name",care[0].car_name);
+     var full_name = (care[0]['first_name'] || '')+ " " + (care[0]['middle_name'] || '')+" " + (care[0]['last_name'] || '');
+      cur_frm.set_value("motherguardiancaregivers_name",full_name);
     }
     }  
   });
