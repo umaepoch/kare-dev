@@ -22,7 +22,7 @@ frappe.ui.form.on('Assessment Intake Form', {
                 cur_frm.set_value("employed",details[0]['employed'] || '');
                 cur_frm.set_value("type_of_employment",details[0]['type_of_employment'] || '');
                 
-                cur_frm.set_value("relationship_between_child_and_caregiver",details[0]['relationship_between_child_and_caregiver'] || '');
+                //cur_frm.set_value("relationship_between_child_and_caregiver",details[0]['relationship_between_child_and_caregiver'] || '');
                 
                 cur_frm.set_value("name_of_saathi",details[0]['saathi'] || '');
                 
