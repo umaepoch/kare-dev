@@ -73,3 +73,80 @@ frappe.ui.form.on('Case Master', {
 		}
 	});
 	*/
+
+	frappe.ui.form.on('Case Master', {
+		add_remittance_details: function(frm, cdt, cdn) {
+			debugger;
+			var d = locals[cdt][cdn];
+			var full_name;
+			var date_of_remittance = d.date_of_remittance;
+			var bank_account = d.bank_account;
+			var remitted_to_childcaregiver = d.remitted_to_childcaregiver;
+			var amount = d.amount;
+			var mode_of_remittance = d.mode_of_remittance;
+			var checkneft = d.checkneft;
+		   
+		   // cur_frm.clear_table("remittance_details_child"); 
+			
+			var remittance_details_child = cur_frm.add_child("remittance_details_child");
+		 
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "date_of_remittance", date_of_remittance);
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "bank_acc_no", bank_account);
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "remitted_to", remitted_to_childcaregiver);
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "amount_remitted", amount);
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "mode_of_remittance", mode_of_remittance);
+			frappe.model.set_value(remittance_details_child.doctype, remittance_details_child.name, "check_or_neft_details", checkneft);
+			  cur_frm.refresh_field("remittance_details_child");
+		  
+			   
+			}
+			});
+			
+		frappe.ui.form.on('Case Master', {
+			fetch_add_remittance_details_from_child_master: function(frm, cdt, cdn) {
+			var d = locals[cdt][cdn];
+			var child = d.child;
+			var case_proposal = d.case_proposal;
+			var child_remmitance = remmitance_details(child);
+			console.log("child_remmitance",child_remmitance);
+			if(child_remmitance)
+			{
+			for ( var i = 0; i < child_remmitance.length; i++) 
+			{
+			cur_frm.set_value("date_of_remittance",child_remmitance[i]['date_of_remittance']);
+			cur_frm.set_value("remitted_to_childcaregiver",child_remmitance[i]['remitted_to']);
+			cur_frm.set_value("mode_of_remittance",child_remmitance[i]['mode_of_remittance'] );
+			cur_frm.set_value("bank_account",child_remmitance[i]['bank_account']);
+			cur_frm.set_value("amount",child_remmitance[i]['amount']);
+			cur_frm.set_value("checkneft",child_remmitance[i]['checkneft']);
+			}}
+			else
+			{
+			cur_frm.set_value("date_of_remittance"," ");
+			cur_frm.set_value("remitted_to_childcaregiver"," ");
+			cur_frm.set_value("mode_of_remittance"," ");
+			cur_frm.set_value("bank_account"," ");
+			cur_frm.set_value("amount"," ");
+			cur_frm.set_value("checkneft"," ");  
+		}}
+			});
+			function remmitance_details(child)
+			{
+			var remmitance = "";
+			frappe.call({
+			method: `kare_dev.kare_dev.doctype.case_master.case_master.get_remmitance_details`,
+			args: {
+				"child": child
+				},
+				async: false,
+				callback: function(r) {
+				if (r.message) {
+				remmitance = r.message;
+				console.log("remmitance",remmitance);
+				console.log("readings-----------" + JSON.stringify(r.message));
+				}    
+					}
+				});
+				return  remmitance;
+			}
+		

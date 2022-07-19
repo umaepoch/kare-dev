@@ -16,3 +16,9 @@ def get_case_details(case_proposal):
 	print("pppppp",get_case_data)
 	return get_case_data
 
+@frappe.whitelist()
+def get_remmitance_details(child):
+	print("child",child)	
+	child_remmitance_details=frappe.db.sql("""select ch.name,ch.bank_account,ch.date_of_remittance,ch.remitted_to,ch.mode_of_remittance,ch.amount,ch.checkneft,ca.name,ca.child from `tabChild Master` as ch join `tabCase Master` as ca where ch.name = ca.child and ch.name ='"""+child+"""' """, as_dict=1)
+	print("child_remmitance_details",child_remmitance_details)
+	return child_remmitance_details

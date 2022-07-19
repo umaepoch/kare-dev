@@ -26,6 +26,14 @@
   "column_break_15",
   "section_break_16",
   "aadhar_card_number",
+  "remittance_details_section",
+  "date_of_remittance",
+  "remitted_to",
+  "mode_of_remittance",
+  "column_break_25",
+  "bank_account",
+  "amount",
+  "checkneft",
   "images_section",
   "image"
  ],
@@ -140,9 +148,51 @@
    "fieldname": "ssg_code",
    "fieldtype": "Data",
    "label": "SSG Code"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account ",
+   "options": "BankAC"
+  },
+  {
+   "fieldname": "remittance_details_section",
+   "fieldtype": "Section Break",
+   "label": "REMITTANCE DETAILS"
+  },
+  {
+   "fieldname": "date_of_remittance",
+   "fieldtype": "Date",
+   "label": "Date Of Remittance"
+  },
+  {
+   "fieldname": "remitted_to",
+   "fieldtype": "Select",
+   "label": "Remitted To",
+   "options": "Child\nCaregiver"
+  },
+  {
+   "fieldname": "mode_of_remittance",
+   "fieldtype": "Select",
+   "label": "Mode Of Remittance",
+   "options": "Online Transfer\nCheque"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Data",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "checkneft",
+   "fieldtype": "Data",
+   "label": "Check/NEFT"
   }
  ],
- "modified": "2022-07-07 13:19:43.955953",
+ "modified": "2022-07-19 10:50:14.662425",
  "modified_by": "Administrator",
  "module": "kare_dev",
  "name": "Child Master",

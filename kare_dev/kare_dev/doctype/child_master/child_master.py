@@ -57,3 +57,9 @@ def get_care_number(name):
 	print("get_care_num",get_care_num)
 	return get_care_num
 
+#@frappe.whitelist()
+#def get_filter_bankac(child):
+#	#get_child_holder_record=frappe.db.sql("""select account_holder_record from `tabBankAC`""", as_dict=1)
+#	get_child_holder_record=frappe.db.sql("""select ch.name,ba.name,ba.account_holder_record from `tabChild Master` as ch inner join `tabBankAC` as ba where ch.name=ba.account_holder_record and ch.name ='"""+child+"""' """, as_dict=1)
+#	print("get_child_holder_record",get_child_holder_record)
+#	return get_child_holder_record
