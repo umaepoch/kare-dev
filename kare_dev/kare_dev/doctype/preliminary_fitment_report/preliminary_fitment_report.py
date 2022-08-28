@@ -29,22 +29,33 @@ def calculateAge(date_of_birth):
 	print (dob.year, dob.month, dob.day)
 
 	if dob.day > d and dob.month >= m:
+		print("inside if")
 		dd = (d + 30) - dob.day
 		mm = ((m - 1) + 12) - dob.month
 		yy = (y - 1) - dob.year
 		return str(yy),str(mm),str(dd)
 	elif dob.day > d and dob.month < m:
+		print("inside else if 1")	
 		dd = (d + 30) - dob.day
 		mm = m - dob.month
 		yy = y - dob.year
 		return str(yy),str(mm),str(dd)
 	elif dob.day < d and dob.month > m:
+		print("inside else if 2")	
 		dd = d - dob.day
 		mm = (m + 12) - dob.month
 		yy = (y - 1) - dob.year
 		return str(yy),str(mm),str(dd)
-	else:
+	else:	
+		print("inside else")	
 		dd = d - dob.day
 		mm = m - dob.month
 		yy = y - dob.year
 		return str(yy),str(mm),str(dd)
+
+@frappe.whitelist()
+def check_case_proposal(case_proposal):
+	print("case_proposal",case_proposal)
+	check_case_proposal =frappe.db.sql("""select case_proposal from `tabPreliminary Fitment Report` where case_proposal ='"""+case_proposal+"""' """, as_dict=1)
+	print("check_case_proposal",check_case_proposal)
+	return check_case_proposal

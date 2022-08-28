@@ -50,3 +50,10 @@ def get_docstatus(name):
 	docstatus=frappe.db.sql("""select name,docstatus,accepted from `tabPreliminary Fitment Report` where `tabPreliminary Fitment Report`.`name`='"""+name+"""' """, as_dict=1)
 	print("docstatus",docstatus)
 	return docstatus
+
+@frappe.whitelist()
+def check_child(child):
+	print("child",child)
+	check_child_record =frappe.db.sql("""select child,name from `tabCase Proposal` where child ='"""+child+"""' """, as_dict=1)
+	print("check_child_record",check_child_record)
+	return check_child_record

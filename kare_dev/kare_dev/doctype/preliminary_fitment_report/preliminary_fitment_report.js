@@ -6,7 +6,7 @@ frappe.ui.form.on('Preliminary Fitment Report', {
             var d = locals[cdt][cdn];
             var name=d.name;    
             var case_proposal_no = fetch_caseproposal_name(name);    
-            cur_frm.set_value("case_proposal",case_proposal_no);
+ //           cur_frm.set_value("case_proposal",case_proposal_no);
             }
         });
         function fetch_caseproposal_name(name) {

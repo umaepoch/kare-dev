@@ -16,3 +16,9 @@ def fetch_preliminary_fitment_data(preliminary_fitment_report):
 	print("get_preliminary_fitment_data",get_preliminary_fitment_data)
 	return get_preliminary_fitment_data
 
+@frappe.whitelist()
+def check_assessment_intake_form(preliminary_fitment_report):
+	print("preliminary_fitment_report",preliminary_fitment_report)
+	check_preliminary_fitment_report =frappe.db.sql("""select preliminary_fitment_report from `tabAssessment Intake Form` where preliminary_fitment_report ='"""+preliminary_fitment_report+"""' """, as_dict=1)
+	print("check_preliminary_fitment_report",check_preliminary_fitment_report)
+	return check_preliminary_fitment_report
