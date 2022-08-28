@@ -1,4 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 # License: GNU General Public License v3. See license.txt
 
 from __future__ import unicode_literals
@@ -63,3 +62,84 @@ def get_care_number(name):
 #	get_child_holder_record=frappe.db.sql("""select ch.name,ba.name,ba.account_holder_record from `tabChild Master` as ch inner join `tabBankAC` as ba where ch.name=ba.account_holder_record and ch.name ='"""+child+"""' """, as_dict=1)
 #	print("get_child_holder_record",get_child_holder_record)
 #	return get_child_holder_record
+
+@frappe.whitelist()
+def check_child(adhar):
+	print("adhar",adhar)
+	check_child_record =frappe.db.sql("""select name,aadhar_card_number from `tabChild Master` where aadhar_card_number ='"""+adhar+"""' """, as_dict=1)
+	print("check_child_record",check_child_record)
+	return check_child_record
+	
+@frappe.whitelist()
+def update_details(name,gender,first_name,middle_name,last_name,date_of_birth,caregiver_address):
+	print("datas",name,gender)
+	case_name =frappe.db.sql("""select name from `tabCase Proposal` where child ='"""+name+"""' """, as_dict=1)
+	if case_name != [ ]:
+		for i in case_name:
+			print("inside loop",case_name)
+			test_doc = frappe.get_doc("Case Proposal",i['name'])
+			if gender != [ ]: 
+				test_doc.gender = gender
+			if first_name != [ ] and middle_name != [ ] and last_name != [ ]:  
+				test_doc.name_of_child = first_name+" "+middle_name+" "+last_name
+			if date_of_birth != [ ]: 
+				test_doc.date_of_birth = date_of_birth
+			if caregiver_address != [ ]: 
+				test_doc.display_address = caregiver_address
+			test_doc.save()
+			return case_name
+	
+@frappe.whitelist()
+def update_child_details(name,gender,first_name,middle_name,last_name,date_of_birth,caregiver_address):
+	print("datas",name,gender)
+	pfr =frappe.db.sql("""select name from `tabPreliminary Fitment Report` where child ='"""+name+"""' """, as_dict=1)
+	if pfr != [ ]:
+		for j in pfr:
+			print("inside loop",pfr)
+			test_d = frappe.get_doc("Preliminary Fitment Report",j['name'])
+			if gender != [ ]: 
+				test_d.gender = gender
+			if first_name != [ ] and middle_name != [ ] and last_name != [ ]:  
+				test_d.child_name = first_name+" "+middle_name+" "+last_name
+			if date_of_birth != [ ]: 
+				test_d.date_of_birth = date_of_birth
+			if caregiver_address != [ ]: 
+				test_d.display_address = caregiver_address
+			test_d.save()
+			return pfr
+				
+@frappe.whitelist()
+def update_child_details_ass(name,gender,first_name,middle_name,last_name,date_of_birth):
+	print("datas",name,gender)
+	ass =frappe.db.sql("""select name from `tabAssessment Intake Form` where child ='"""+name+"""' """, as_dict=1)
+	if ass != [ ]:
+		for k in ass:
+			print("inside loop",ass)
+			test_d = frappe.get_doc("Assessment Intake Form",k['name'])
+			if gender != [ ]: 
+				test_d.gender = gender
+			if first_name != [ ] and middle_name != [ ] and last_name != [ ]:  
+				test_d.child_name = first_name+" "+middle_name+" "+last_name
+			if date_of_birth != [ ]: 
+				test_d.date_of_birth = date_of_birth
+			test_d.save()
+			return ass
+
+@frappe.whitelist()
+def update_child_details_case_m(name,gender,first_name,middle_name,last_name,date_of_birth,caregiver_address):
+	print("datas",name,gender)
+	ass =frappe.db.sql("""select name from `tabCase Master` where child ='"""+name+"""' """, as_dict=1)
+	if ass != [ ]:
+		for k in ass:
+			print("inside loop",ass)
+			test_d = frappe.get_doc("Case Master",k['name'])
+			if gender != [ ]: 
+				test_d.gender = gender
+			if first_name != [ ] and middle_name != [ ] and last_name != [ ]:  
+				test_d.name_of_child = first_name+" "+middle_name+" "+last_name
+			if date_of_birth != [ ]: 
+				test_d.date_of_birth = date_of_birth
+			if caregiver_address != [ ]: 
+				test_d.address_of_child = caregiver_address
+			test_d.save()
+			return ass
