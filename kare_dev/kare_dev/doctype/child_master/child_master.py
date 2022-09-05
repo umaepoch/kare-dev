@@ -74,24 +74,20 @@ def check_child(adhar):
 	
 @frappe.whitelist()
 def update_details_case_prop(name,gender,first_name,middle_name,last_name,date_of_birth,caregiver_address):
-	print("datas",name,gender)
+	print("datas case proposal",name,gender)
 	case_name =frappe.db.sql("""select name from `tabCase Proposal` where child ='"""+name+"""' """, as_dict=1)
 	if case_name != [ ]:
 		for i in case_name:
 			print("inside loop",case_name)
 			test_doc = frappe.get_doc("Case Proposal",i['name'])
 			if gender != [ ]: 
-				#test_doc.gender = gender
-				frappe.db.set_value('Case Proposal',i['name'],"gender",gender)
+				test_doc.gender = gender
 			if first_name != [ ] and middle_name != [ ] and last_name != [ ]:  
-				frappe.db.set_value('Case Proposal',i['name'],"name_of_child",first_name+" "+middle_name+" "+last_name)
-				#test_doc.name_of_child = first_name+" "+middle_name+" "+last_name
+				test_doc.name_of_child = first_name+" "+middle_name+" "+last_name
 			if date_of_birth != [ ]: 
-				#test_doc.date_of_birth = date_of_birth
-				frappe.db.set_value('Case Proposal',i['name'],"date_of_birth",date_of_birth)
+				test_doc.date_of_birth = date_of_birth
 			if caregiver_address != [ ]: 
-				#test_doc.display_address = caregiver_address
-				frappe.db.set_value('Case Proposal',i['name'],"display_address",caregiver_address)
+				test_doc.display_address = caregiver_address
 			test_doc.save()
 			return case_name
 	
@@ -128,7 +124,6 @@ def update_child_details_ass(name,gender,first_name,middle_name,last_name,date_o
 				test_d.child_name = first_name+" "+middle_name+" "+last_name
 			if date_of_birth != [ ]: 
 				test_d.date_of_birth = date_of_birth
-			
 			test_d.save()
 			return ass
 
