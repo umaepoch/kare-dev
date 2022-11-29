@@ -138,3 +138,27 @@ frappe.ui.form.on("Service Provider Type", "service_provider_type", function(frm
   }
   
   });
+
+  //client script
+
+  frappe.ui.form.on('Service Provider Master',{ 
+    before_save : function(frm, cdt, cdn)
+    {
+    var d = locals[cdt][cdn];
+    var aadhar_card_number = d.aadhar_card_number;
+    
+    var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+    
+    var x=aadhar_card_number;
+    if(regexp.test(x))
+    {
+    
+    }
+    else
+    {
+           frappe.msgprint("Invalid Aadhar no.");
+         frappe.validated = false;
+    }
+    }
+    });
+    
