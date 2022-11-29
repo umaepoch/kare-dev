@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 //filter sevice provider master record where service provider type = saathi 
 frappe.ui.form.on('Case Proposal', {
-    saathiproposed_saathi: function(frm, cdt, cdn) {
+    refresh: function(frm, cdt, cdn) {
        var d = locals[cdt][cdn];
        var c_saathi = d.saathi;
        console.log("c_saathi ",c_saathi);
@@ -17,7 +17,7 @@ frappe.ui.form.on('Case Proposal', {
            }});
    //filter sevice provider master record where service provider type = coordinator 
    frappe.ui.form.on('Case Proposal', {
-   proposed_coordinator: function(frm, cdt, cdn) {
+   refresh: function(frm, cdt, cdn) {
    var d = locals[cdt][cdn];
    frm.set_query("proposed_coordinator", function() {
            return {
@@ -305,4 +305,45 @@ preliminary_fitment_report: function(frm, cdt, cdn) {
                                    });
                                    return  record_status;
                                    }
-                           
+
+
+//client script
+frappe.ui.form.on('Case Proposal',{ 
+    before_save : function(frm, cdt, cdn)
+    {
+    var d = locals[cdt][cdn];
+    var child = d.child;
+    var child_data = find_dublicate(child);
+    console.log("data",child_data);
+    console.log("child_data.length",child_data.length);
+    
+    if(child_data.length > 0)
+    {
+       frappe.msgprint("This Child Record Number is already have case proposal"); 
+        console.log("entered if ");
+         frappe.validated = false;
+    }
+    }
+    });
+    function find_dublicate(child)
+    {
+        var childd = " ";
+        frappe.call({
+        method: 'kare_dev.kare_dev.doctype.case_proposal.case_proposal.check_child',
+       args: {
+             child : child
+          },
+          async: false,
+          callback: function(r) {
+            if (r.message) {
+              console.log(typeof r.message)
+              childd = r.message;
+              console.log("childd",childd);
+            }
+          }
+        })
+        return childd
+      }
+      
+     
+     
