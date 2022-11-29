@@ -182,3 +182,43 @@ frappe.ui.form.on('Preliminary Fitment Report', {
                 });
                 return  age;
             }	
+
+//client script
+
+frappe.ui.form.on('Preliminary Fitment Report',{ 
+    before_save : function(frm, cdt, cdn)
+    {
+    var d = locals[cdt][cdn];
+    var case_proposal = d.case_proposal;
+    var case_proposal_data = find_dublicate(case_proposal);
+    console.log("case_proposal_data",case_proposal_data);
+    console.log("case_proposal_data.length",case_proposal_data.length);
+    if(case_proposal_data.length > 0)
+    {
+       frappe.msgprint("This case Proposal number is already have Preliminary Fitment Report "); 
+     
+         frappe.validated = false;
+    }
+    }
+    });
+    function find_dublicate(case_proposal)
+    {
+        var c = " ";
+        frappe.call({
+        method: 'kare_dev.kare_dev.doctype.preliminary_fitment_report.preliminary_fitment_report.check_case_proposal',
+       args: {
+             case_proposal : case_proposal
+          },
+          async: false,
+          callback: function(r) {
+            if (r.message) {
+              console.log(typeof r.message)
+              c = r.message;
+              console.log("c",c);
+            }
+          }
+        })
+        return c
+      }
+      
+    
