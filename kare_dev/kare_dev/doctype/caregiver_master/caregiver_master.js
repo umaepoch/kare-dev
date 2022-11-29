@@ -210,3 +210,205 @@ frappe.ui.form.on('Caregiver Master', {
       return  is_same_name;
   }
 */
+
+//client script
+
+frappe.ui.form.on('Caregiver Master',{ 
+  after_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var name = d.name;
+  console.log("name",name);
+  var first_name = d.first_name;
+  var middle_name = d.middle_name;
+  var last_name = d.last_name;
+  var skill = d.skill;
+  console.log("skill",skill);
+  var education = d.education;
+  var employed = d.employed;
+  var type_of_employment = d.type_of_employment;
+  
+  set_changes(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment);
+  
+  }
+  });
+  function set_changes(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment)
+  {
+      var genderr = " ";
+      frappe.call({
+      method: 'kare_dev.kare_dev.doctype.caregiver_master.caregiver_master.update_details',
+     args: {
+           name : name,
+           first_name : first_name,
+           middle_name : middle_name,
+           last_name : last_name,
+           skill : skill,
+           education : education,
+           employed : employed,
+           type_of_employment : type_of_employment
+        },
+        async: false,
+        callback: function(r) {
+          if (r.message) {
+            console.log(typeof r.message);
+            adhar = r.message;
+            console.log("genderr",genderr);
+          }
+        }
+      });
+  
+    }
+    
+    frappe.ui.form.on('Caregiver Master',{ 
+  after_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var name = d.name;
+  console.log("name",name);
+  var first_name = d.first_name;
+  var middle_name = d.middle_name;
+  var last_name = d.last_name;
+  var skill = d.skill;
+  console.log("skill",skill);
+  var education = d.education;
+  var employed = d.employed;
+  var type_of_employment = d.type_of_employment;
+  
+  set_care_changes(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment);
+  
+  }
+  });
+  function set_care_changes(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment)
+  {
+      var genderr = " ";
+      frappe.call({
+      method: 'kare_dev.kare_dev.doctype.caregiver_master.caregiver_master.update_care_details',
+     args: {
+           name : name,
+           first_name : first_name,
+           middle_name : middle_name,
+           last_name : last_name,
+           skill : skill,
+           education : education,
+           employed : employed,
+           type_of_employment : type_of_employment
+        },
+        async: false,
+        callback: function(r) {
+          if (r.message) {
+            console.log(typeof r.message);
+            adhar = r.message;
+            console.log("genderr",genderr);
+          }
+        }
+      });
+  
+    }
+    
+     
+    frappe.ui.form.on('Caregiver Master',{ 
+  after_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var name = d.name;
+  console.log("name",name);
+  var first_name = d.first_name;
+  var middle_name = d.middle_name;
+  var last_name = d.last_name;
+  var skill = d.skill;
+  console.log("skill",skill);
+  var education = d.education;
+  var employed = d.employed;
+  var type_of_employment = d.type_of_employment;
+  
+  set_care_changes_ass(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment);
+  
+  }
+  });
+  function set_care_changes_ass(name,first_name,middle_name,last_name,skill,education,employed,type_of_employment)
+  {
+      var genderr = " ";
+      frappe.call({
+      method: 'kare_dev.kare_dev.doctype.caregiver_master.caregiver_master.update_care_details_ass',
+     args: {
+           name : name,
+           first_name : first_name,
+           middle_name : middle_name,
+           last_name : last_name,
+           skill : skill,
+           education : education,
+           employed : employed,
+           type_of_employment : type_of_employment
+        },
+        async: false,
+        callback: function(r) {
+          if (r.message) {
+            console.log(typeof r.message);
+            adhar = r.message;
+            console.log("genderr",genderr);
+          }
+        }
+      });
+  
+    }
+    
+       frappe.ui.form.on('Caregiver Master',{ 
+  after_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var name = d.name;
+  console.log("name",name);
+  var first_name = d.first_name;
+  var middle_name = d.middle_name;
+  var last_name = d.last_name;
+  
+  set_care_changes_case(name,first_name,middle_name,last_name);
+  
+  }
+  });
+  function set_care_changes_case(name,first_name,middle_name,last_name)
+  {
+      var genderr = " ";
+      frappe.call({
+      method: 'kare_dev.kare_dev.doctype.caregiver_master.caregiver_master.update_care_details_case',
+     args: {
+           name : name,
+           first_name : first_name,
+           middle_name : middle_name,
+           last_name : last_name,
+        },
+        async: false,
+        callback: function(r) {
+          if (r.message) {
+            console.log(typeof r.message);
+            adhar = r.message;
+            console.log("genderr",genderr);
+          }
+        }
+      });
+  
+    }
+  
+    
+  frappe.ui.form.on('Caregiver Master',{ 
+  before_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var aadhar_card_number = d.aadhar_card_number;
+  
+  var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+  
+  var x=aadhar_card_number;
+  if(regexp.test(x))
+  {
+  
+  }
+  else
+  {
+         frappe.msgprint("Invalid Aadhar no.");
+       frappe.validated = false;
+  }
+  }
+  });
+  
+  
