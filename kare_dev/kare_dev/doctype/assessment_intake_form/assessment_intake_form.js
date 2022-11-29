@@ -83,3 +83,44 @@ frappe.ui.form.on('Assessment Intake Form', {
                     return  case_d;
                     }	
         
+//client script
+frappe.ui.form.on('Assessment Intake Form',{ 
+  before_save : function(frm, cdt, cdn)
+  {
+  var d = locals[cdt][cdn];
+  var preliminary_fitment_report = d.preliminary_fitment_report;
+  var ass = find_dublicate(preliminary_fitment_report);
+  console.log("ass",ass);
+  console.log("ass.length",ass.length);
+  
+  if(ass.length === 0)
+  {
+  }
+  else if(ass.length > 0)
+  {
+     frappe.msgprint("This preliminary fitment report is already have Assessment Intake Form-Client"); 
+    console.log("entered else ");
+       frappe.validated = false;
+  }
+  }
+  });
+  function find_dublicate(preliminary_fitment_report)
+  {
+      var c = " ";
+      frappe.call({
+      method: 'kare_dev.kare_dev.doctype.assessment_intake_form.assessment_intake_form.check_assessment_intake_form',
+     args: {
+           preliminary_fitment_report : preliminary_fitment_report
+        },
+        async: false,
+        callback: function(r) {
+          if (r.message) {
+            console.log(typeof r.message)
+            c = r.message;
+            console.log("c",c);
+          }
+        }
+      })
+      return c
+    }
+    
